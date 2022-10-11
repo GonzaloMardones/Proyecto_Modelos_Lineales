@@ -1,30 +1,30 @@
 ---
-title: "Proyecto_Modelos_Lineales"
+title: "Proyecto Modelos Lineales"
 author: "Oscar Gamboa, Gonzalo Mardones, Nicolas Montecinos"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## Construcción de objeto de investigación
 
-## R Markdown
+### Planteamiento del Problema
+¿Cuáles son los hechos o fenómenos?; ¿Qué dicen los datos?
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### Justificación del Problema
+ Las razones que conducen a investigar el fenómeno.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+###  Estado del 
+¿Qué se ha dicho del tema en cuestión?; ¿Cómo lo han
+investigado?; ¿Qué tipo de metodología utilizan?
 
-```{r cars}
-summary(cars)
-```
+### Objetivo General y Obbjetivo Especifico
+¿Para qué y cómo abordar la investigación?
+Es la fase procedimental que conduce o guía a todo proyecto.
 
-## Including Plots
+### Plateamiento de la hipótesis en el estudio
+¿Qué es lo que quiero problematizar o comprobar?
 
-You can also embed plots, for example:
+## Generaciónn de unidades de información
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Diseño de estrategias metodológicas: ¿Qué metodologías utilizaré?;
+¿Cómo voy a alcanzar los objetivos que he construido?
