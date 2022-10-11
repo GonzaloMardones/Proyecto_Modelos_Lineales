@@ -3,6 +3,11 @@ title: "Proyecto Modelos Lineales"
 author: "Oscar Gamboa, Gonzalo Mardones, Nicolas Montecinos"
 date: "`r Sys.Date()`"
 output: pdf_document
+header-includes: 
+  - \usepackage{tikz}
+  - \usepackage{pgfplots}
+  - \usepackage{amsmath}
+  - \usepackage{dutchcal}
 ---
 
 ## Construcción de objeto de investigación
@@ -13,7 +18,7 @@ output: pdf_document
 ### Justificación del Problema
  Las razones que conducen a investigar el fenómeno.
 
-###  Estado del 
+###  Estado del Arte
 ¿Qué se ha dicho del tema en cuestión?; ¿Cómo lo han
 investigado?; ¿Qué tipo de metodología utilizan?
 
@@ -24,7 +29,75 @@ Es la fase procedimental que conduce o guía a todo proyecto.
 ### Plateamiento de la hipótesis en el estudio
 ¿Qué es lo que quiero problematizar o comprobar?
 
-## Generaciónn de unidades de información
+## Generación de unidades de información
 
 ### Diseño de estrategias metodológicas: ¿Qué metodologías utilizaré?;
 ¿Cómo voy a alcanzar los objetivos que he construido?
+
+## Procesamiento de las unidades de información
+
+Análisis de datos: ¿Qué dicen los datos?
+
+Conclusiones de la investigación: ¿Se ha cumplido los planteamientos o postulados?
+
+\begin{center}
+    \begin{tabular}{|c|}
+        \hline
+        \textbf{Base de datos de Licencias Médicas}\\
+        \begin{tabular}{|p{5cm}|p{11cm}|}
+            \hline
+             \textbf{Variable} & \textbf{Descripción}\\
+             \hline
+             ESCALAFON & [STRING] ... \\
+             \hline
+             RUT\_FUNCIONARIO & [STRING] ...\\
+            \hline
+             NOMBRE  & [STRING] ...\\
+            \hline
+             AP\_P & [STRING] ...\\
+            \hline
+             AP\_M & [STRING] ...\\
+            \hline
+             SEXO & [FACTOR] ...\\
+            \hline
+             ESTADO\_CIVIL & [FACTOR] ...\\
+            \hline
+             EDAD & [DOUBLE] ...\\
+            \hline
+             COMUNA\_RESIDENCIA & [STRING] ...\\
+            \hline
+             RENTA\_PROMEDIO & [DOUBLE] ...\\
+            \hline
+             SISTEMA\_SALUD & [FACTOR] ...\\
+            \hline 
+             JORNADA & [DOUBLE] ...\\
+            \hline             
+             NIVEL & [FACTOR] ...\\
+            \hline                         
+             ESTABLECIMIENTO & [STRING] ...\\
+            \hline                                     
+             TIPO\_ESTABLECIMIENTO & [FACTOR] ...\\
+            \hline                                                 
+             COMUNA\_ESTABLECIMIENTO & [FACTOR] ...\\
+            \hline                                                             
+             CALIDAD\_DESEMPEÑO & [FACTOR] ...\\
+            \hline  
+             ESTAMENTO & [FACTOR] ...\\
+            \hline              
+             TRAMO\_DOCENTE & [FACTOR] ...\\
+            \hline                          
+             EVALUACION\_DOCENTE & [FACTOR] ...\\
+            \hline  
+             CANTIDAD\_LM & [DOUBLE] ...\\
+            \hline              
+             PROMEDIO\_DIAS\_LM & [DOUBLE] ...\\
+            \hline                          
+             SUMA\_DIAS & [DOUBLE] ...\\
+            \hline                          
+             TRASLADO\_COMUNA & [DOUBLE] ...\\
+            \hline                                      
+        \end{tabular}\\
+        \\
+        \hline
+    \end{tabular}
+\end{center}

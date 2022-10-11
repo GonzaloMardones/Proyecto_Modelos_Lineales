@@ -3,7 +3,7 @@ library(tidyverse)
 
 
 # Lectura y cambio de estructura de la BBDD
-
+setwd("~/Desktop/MAGISTER/modelos_lineales/")
 BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
 #View(BBDD_proyecto)
 names(BBDD_proyecto)
@@ -27,14 +27,6 @@ levels(BBDD_proyecto$EVALUACION_DOCENTE)
 contrasts(BBDD_proyecto$EVALUACION_DOCENTE)
 
 BBDD_proyecto_sin_ceros <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
-
-
-unique(BBDD_proyecto_sin_ceros$EVALUACION_DOCENTE)
-levels(BBDD_proyecto_sin_ceros$EVALUACION_DOCENTE)
-mod <- lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE, data = BBDD_proyecto_sin_ceros)
-summary(mod)
-
-
 
 ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
   geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
