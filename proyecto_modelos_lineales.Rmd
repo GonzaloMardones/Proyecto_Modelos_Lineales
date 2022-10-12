@@ -83,36 +83,36 @@ La base de datos esta compuesta por $1.109$ observaciones y $15$ columnas detall
     \begin{tabular}{|c|}
         \hline
         \textbf{Base de datos de Licencias Médicas}\\
-        \begin{tabular}{|p{5cm}|p{11cm}|}
+        \begin{tabular}{|p{5cm}|p{2cm}|p{10cm}|}
             \hline
-             \textbf{Variable} & \textbf{Descripción}\\
+             \textbf{Variable} & \textbf{Tipo} & \textbf{Descripción}\\
              \hline
-             SEXO & [FACTOR] ...\\
+             SEXO & FACTOR & ...\\
             \hline
-             ESTADO\_CIVIL & [FACTOR] ...\\
+             ESTADO\_CIVIL & FACTOR & ...\\
             \hline
-             EDAD & [DOUBLE] ...\\
+             EDAD & DOUBLE & ...\\
             \hline
-             RENTA\_PROMEDIO & [DOUBLE] ...\\
+             RENTA\_PROMEDIO & DOUBLE & ...\\
             \hline
-             SISTEMA\_SALUD & [FACTOR] ...\\
+             SISTEMA\_SALUD & FACTOR & ...\\
             \hline 
-             JORNADA & [DOUBLE] ...\\
+             JORNADA & DOUBLE & ...\\
             \hline             
-             NIVEL & [FACTOR] ...\\
+             NIVEL & FACTOR & ...\\
             \hline                         
-             TIPO\_ESTABLECIMIENTO & [FACTOR] ...\\
+             TIPO\_ESTABLECIMIENTO & FACTOR &...\\
             \hline                                    
-             CALIDAD\_DESEMPEÑO & [FACTOR] profe jefe o no \\
+             CALIDAD\_DESEMPEÑO & FACTOR &profe jefe o no \\
             \hline  
-             TRAMO\_DOCENTE & [FACTOR] ...\\
+             TRAMO\_DOCENTE & FACTOR &...\\
             \hline                          
-             EVALUACION\_DOCENTE & [FACTOR] ...\\
+             EVALUACION\_DOCENTE & FACTOR &...\\
             \hline  
-             PROMEDIO\_DIAS\_LM & [DOUBLE] ...\\
+             PROMEDIO\_DIAS\_LM & DOUBLE & ...\\
             \hline                          
-             TRASLADO\_COMUNA & [DOUBLE] ...\\
-            \hline                                      
+             TRASLADO\_COMUNA & DOUBLE &...\\
+            \hline                          
         \end{tabular}\\
         \\
         \hline
@@ -229,32 +229,12 @@ summary(modelo0)
 
 |Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
 |:---------|:---------:| :---------:|:---------:|:---------:|
-|Intercepto | 4.372e+05 | 2.451e+04 |17.838|< 2e-16 ***|
-|STATEFL|-4.690e+05|17210000|-27.251|< 2e-16 ***|
-|STATEMI|-3.483e+05 |37180000|-9.369|1.18e-15 ***|
-|STATENY|-322900000|29740000|-10.857|< 2e-16 ***|
-|STATETX|-298700000|8024000|-37.225|< 2e-16 ***|
-|STATEUT|-630500000|35070000|-17.979|< 2e-16 ***|
-|YEAR1968|2536000|13280000|0.191|0.848955 |
-|YEAR1969|18270000|13270000|1.377|0.171444|
-|YEAR1970|22620000|13280000|1.704|0.091252|
-|YEAR1971|40560000|13270000|3.056|0.002820 ** |
-|YEAR1972|43720000|13280000|3.293|0.001336 ** |
-|YEAR1973|41320000|13330000|3.099|0.002469 ** |
-|YEAR1974|31800000|13310000|2.389|0.018604 * |
-|YEAR1975|35890000|13270000|2.704|0.007942 ** |
-|YEAR1976|30860000|13310000|2.318|0.022339 * |
-|YEAR1977|18760000|13280000|1.413|0.160613|
-|YEAR1978|18470000|13390000|1.379|0.170612 |
-|YEAR1979|41650000|13330000|3.124|0.002283 **| 
-|YEAR1980|25830000|13270000|1.946|0.054244|
-|YEAR1981|19140000|13360000|1.433|0.154732|
-|YEAR1982|20130000|13280000|1.516|0.132493|
-|YEAR1983|11590000|13280000|0.872|0.384912|
-|YEAR1984|9338000|13270000|0.704|0.483233|
-|YEAR1985|11460000|13290000|0.862|0.390357|
-|YEAR1986|12570000|13570000|0.927|0.356180|
-|YEAR1987|14450000|13480000|1.072|0.286148|
-|YEAR1988|15780000|13280000|1.188|0.237427|
-|YEAR1989|22250000|13280000|1.676|0.096632|
-|HDD|33340|8513|3.916|0.000157 ***|
+|Intercepto | 7.59163 | 1.49024 |5.094|4.6e-07 ***|
+|EVALUACION_DOCENTEDESTACADO|-2.69256|1.55890|-1.727|0.08460 .|
+|EVALUACION_DOCENTEBASICO|-2.08287 |1.13656|-1.833|0.06732 .|
+|EVALUACION_DOCENTEINSATISFACTORIO|7.87294 |1.52249|5.171|3.1e-07 ***|
+|EVALUACION_DOCENTECOMPETENTE|-1.91725 |1.12365|-1.706|0.08844 .|
+|CALIDAD_DESEMPEÑOTITULAR|2.65846|0.72190|3.683|0.00025 ***|
+|NIVELMEDIA|-1.84583|0.63467|-2.908|0.00376 **|
+|EDAD|0.06085|0.02425|2.509|0.01233|
+

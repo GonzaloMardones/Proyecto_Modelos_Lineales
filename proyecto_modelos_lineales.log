@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  12 OCT 2022 00:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  12 OCT 2022 12:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -986,7 +986,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 233.
 
-Overfull \hbox (23.48904pt too wide) in paragraph at lines 241--278
+Overfull \hbox (64.3418pt too wide) in paragraph at lines 241--278
  [] 
  []
 
@@ -1026,7 +1026,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 Here is how much of TeX's memory you used:
  34371 strings out of 478268
  790307 string characters out of 5846348
- 1190059 words of memory out of 5000000
+ 1185063 words of memory out of 5000000
  51893 multiletter control sequences out of 15000+600000
  512036 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1042,7 +1042,7 @@ mf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fon
 ts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
 blic/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmt
 t10.pfb>
-Output written on proyecto_modelos_lineales.pdf (7 pages, 205682 bytes).
+Output written on proyecto_modelos_lineales.pdf (7 pages, 205134 bytes).
 PDF statistics:
  173 PDF objects out of 1000 (max. 8388607)
  139 compressed objects within 2 object streams
