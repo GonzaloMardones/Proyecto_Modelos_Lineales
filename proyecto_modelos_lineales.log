@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  11 OCT 2022 22:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  11 OCT 2022 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -937,62 +937,62 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
 71.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [2]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-2-1.pdf, id=45, 459
-.7175pt x 315.1775pt>
-File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-2-1.pdf Graphi
-c file (type pdf)
-<use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-2-1.pdf  used on input line 297.
-(pdftex.def)             Requested size: 422.79791pt x 289.86581pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-3-1.pdf, id=46, 459
+)
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-3-1.pdf, id=39, 459
 .7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-3-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-3-1.pdf  used on input line 310.
-(pdftex.def)             Requested size: 422.79791pt x 289.86581pt.
-[3 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-2-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf, id=61, 427
-.5975pt x 284.06125pt>
+hunk-3-1.pdf  used on input line 290.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+[2]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf, id=46, 459
+.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-4-1.pdf  used on input line 322.
-(pdftex.def)             Requested size: 422.77477pt x 280.85739pt.
-[4 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-3-1.pdf> <./pr
+hunk-4-1.pdf  used on input line 294.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf, id=47, 427
+.5975pt x 284.06125pt>
+File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf Graphi
+c file (type pdf)
+<use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
+hunk-5-1.pdf  used on input line 298.
+(pdftex.def)             Requested size: 375.80414pt x 249.6539pt.
+[3 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-3-1.pdf> <./pr
 oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-362.
+338.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [5] [6] [7] [8] (./proyecto_modelos_lineales.aux) ) 
+) [4 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>] [5
+] [6] [7] (./proyecto_modelos_lineales.aux) ) 
 Here is how much of TeX's memory you used:
- 33942 strings out of 478268
- 783266 string characters out of 5846348
- 1179443 words of memory out of 5000000
+ 33943 strings out of 478268
+ 783280 string characters out of 5846348
+ 1178443 words of memory out of 5000000
  51490 multiletter control sequences out of 15000+600000
- 511621 words of font info for 92 fonts, out of 8000000 for 9000
+ 511704 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,14n,80p,1022b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/t
-exmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fon
-ts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/l
-m/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.en
-c}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fon
-ts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
-blic/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmt
-t10.pfb>
-Output written on proyecto_modelos_lineales.pdf (8 pages, 210958 bytes).
+{/usr/local/texlive/2022/texmf-dis
+t/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/d
+vips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mat
+hit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/
+local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/t
+exmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
+/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/
+lmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on proyecto_modelos_lineales.pdf (7 pages, 209593 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
  24692 words of extra memory for PDF output out of 24883 (max. 10000000)
 

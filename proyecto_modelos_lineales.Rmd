@@ -148,7 +148,9 @@ BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
                                                       "COMPETENTE"))
 
 BBDD_proyecto_sin_ceros <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
+```
 
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="80%", echo=FALSE}
 ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
   geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
   geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
@@ -160,7 +162,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
 
 Boxplot de días promedios de licencias medicas
 
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="80%", echo=FALSE}
 ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM))+
   stat_boxplot(geom = "errorbar",width = 0.15) +
   geom_boxplot(fill="#FF6666")+
@@ -170,7 +172,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM))+
 Explorar las variables más importantes
 
 
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="80%", echo=FALSE}
 hist(BBDD_proyecto_sin_ceros$PROMEDIO_DIAS_LM,freq = FALSE,
      main = "Histograma de Licencia Días Promedio",
      xlab = "Días", ylab = "Frecuencia")
@@ -189,8 +191,13 @@ add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
        SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
        ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
      test="F") 
+```
 
+Para decidir la entrada del segundo predictor, se debe evaluar todos los modelos que ya contienen al promedio de días de licencias medicas, a lo que se agrega cada uno de los predictores restantes por separado.
 
+De acuerdo al caso anterior, el menor valor-p corresponde al modelo PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
 modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE, data = BBDD_proyecto_sin_ceros)
 add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
        SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
@@ -198,21 +205,24 @@ add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
      test="F") 
 
 
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO, data = BBDD_proyecto_sin_ceros)
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO, 
+             data = BBDD_proyecto_sin_ceros)
 add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
        SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
        ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
      test="F") 
 
 
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL, data = BBDD_proyecto_sin_ceros)
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL, 
+             data = BBDD_proyecto_sin_ceros)
 add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
        SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
        ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
      test="F") 
 
 
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL + EDAD, data = BBDD_proyecto_sin_ceros)
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL + EDAD, 
+             data = BBDD_proyecto_sin_ceros)
 add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
        SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
        ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
