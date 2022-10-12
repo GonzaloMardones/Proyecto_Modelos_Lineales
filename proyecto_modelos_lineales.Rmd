@@ -14,7 +14,7 @@ header-includes:
  - bla bla
 
 ### Planteamiento del Problema
-¿Cuáles son los hechos o fenómenos?; ¿Qué dicen los datos?
+<!-- ¿Cuáles son los hechos o fenómenos?; ¿Qué dicen los datos? -->
 
 - Fenomeno: Licencias medicas en funcionarios de educación en Huasco - 2022 han llegado con mucha frecuencia...
 
@@ -25,16 +25,15 @@ header-includes:
   
   
 ###  Estado del Arte
-¿Qué se ha dicho del tema en cuestión?; ¿Cómo lo han
-investigado?; ¿Qué tipo de metodología utilizan?
+<!-- ¿Qué se ha dicho del tema en cuestión?; ¿Cómo lo han -->
+<!-- investigado?; ¿Qué tipo de metodología utilizan? -->
 
 BUSCAR UNA REFERENCIA A NIVEL NACIONAL PARA DECLARAR EL IMPACTO (DOCENTES Y MEDICOS)
 METODOLOGIA DE CONTEO (DESCRIPTIVO) 
 
 
 ### Objetivo General y Objetivo Especifico
-
-¿Para qué y cómo abordar la investigación?
+<!-- ¿Para qué y cómo abordar la investigación? -->
 
   - Obj General: 
   se busca caracterizar la catnidad de dias promedios de LM de los docentes contratados bajo la administración del servicio de ed. publica de la provincia de Huasco, con info actualizada ENE-2022 a OCT-2022 con el fin poder entregar mayores antecedentes a la hora de tomar decisiones a nivel provincial 
@@ -50,21 +49,17 @@ METODOLOGIA DE CONTEO (DESCRIPTIVO)
 
 
 ### Plateamiento de la hipótesis en el estudio
-¿Qué es lo que quiero problematizar o comprobar?
-
+<!-- ¿Qué es lo que quiero problematizar o comprobar? -->
   <!-- - Se desea validar que (definición de hipotesis) -->
   
   - Se quiere determinar si la evaluación docente esta indirectametne relacionada con el promedio de días tomados por licencias medicas de los mismos docentes 
   
   
-  
-
 ## Generación de unidades de información
 
 ### Diseño de estrategias metodológicas
 <!-- : ¿Qué metodologías utilizaré?; -->
-
-¿Cómo voy a alcanzar los objetivos que he construido?
+<!-- ¿Cómo voy a alcanzar los objetivos que he construido? -->
 
 
 Debido a lo que se quiere explicar, se plantea
@@ -73,9 +68,9 @@ metodologia a traves de regresiones lineales debido a que se quiere explocar ...
 
 ## Procesamiento de las unidades de información
 
-Análisis de datos: ¿Qué dicen los datos?
+<!-- Análisis de datos: ¿Qué dicen los datos? -->
 
-La base de datos esta compuesta por $1.109$ observaciones y $15$ columnas detalladas a continuación:
+<!-- La base de datos esta compuesta por $1.109$ observaciones y $15$ columnas detalladas a continuación: -->
 
 ### Descripción de los datos 
 
@@ -83,36 +78,36 @@ La base de datos esta compuesta por $1.109$ observaciones y $15$ columnas detall
     \begin{tabular}{|c|}
         \hline
         \textbf{Base de datos de Licencias Médicas}\\
-        \begin{tabular}{|p{5cm}|p{2cm}|p{10cm}|}
+        \begin{tabular}{|p{5cm}|p{2cm}|p{8cm}|}
             \hline
              \textbf{Variable} & \textbf{Tipo} & \textbf{Descripción}\\
              \hline
-             SEXO & FACTOR & ...\\
+             SEXO & Factor & ...\\
             \hline
-             ESTADO\_CIVIL & FACTOR & ...\\
+             ESTADO\_CIVIL & Factor & ...\\
             \hline
-             EDAD & DOUBLE & ...\\
+             EDAD & Double & ...\\
             \hline
-             RENTA\_PROMEDIO & DOUBLE & ...\\
+             RENTA\_PROMEDIO & Double & ...\\
             \hline
-             SISTEMA\_SALUD & FACTOR & ...\\
+             SISTEMA\_SALUD & Factor & ...\\
             \hline 
-             JORNADA & DOUBLE & ...\\
+             JORNADA & Double & ...\\
             \hline             
-             NIVEL & FACTOR & ...\\
+             NIVEL & Factor & ...\\
             \hline                         
-             TIPO\_ESTABLECIMIENTO & FACTOR &...\\
+             TIPO\_ESTABLECIMIENTO & Factor &...\\
             \hline                                    
-             CALIDAD\_DESEMPEÑO & FACTOR &profe jefe o no \\
+             CALIDAD\_DESEMPEÑO & Factor &profe jefe o no \\
             \hline  
-             TRAMO\_DOCENTE & FACTOR &...\\
+             TRAMO\_DOCENTE & Factor &...\\
             \hline                          
-             EVALUACION\_DOCENTE & FACTOR &...\\
+             EVALUACION\_DOCENTE & Factor &...\\
             \hline  
-             PROMEDIO\_DIAS\_LM & DOUBLE & ...\\
+             PROMEDIO\_DIAS\_LM & Double & ...\\
             \hline                          
-             TRASLADO\_COMUNA & DOUBLE &...\\
-            \hline                          
+             TRASLADO\_COMUNA & Double &...\\
+            \hline                  
         \end{tabular}\\
         \\
         \hline
@@ -125,6 +120,16 @@ Detalle de ETL de los datos
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="70%", include = FALSE}
 library(readxl)
 library(tidyverse)
+
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(scales)
+library(cowplot)
+library(patchwork)
+library(hrbrthemes)
+library(viridis)
+
 
 setwd("~/Desktop/MAGISTER/modelos_lineales/")
 BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
@@ -151,6 +156,202 @@ BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
 BBDD_proyecto_sin_ceros <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
 ```
 
+## Estadística Descriptiva Oscar
+
+
+```{r, message=FALSE, warning=FALSE}
+ 
+
+#kable(summary(BBDD_proyecto_sin_ceros))
+
+# Variable Sexo
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
+  geom_bar()+
+  scale_y_continuous(limits = c(0,500))+
+  geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 2, color="white")+
+  labs(
+    title="Distribución de la variable Sexo",
+    y="Frecuencia",
+    x="Sexo"
+  )+
+  theme_minimal()
+```
+
+```{r, message=FALSE, warning=FALSE}
+# Distribución Edad: Ambos sexos
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
+  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+  labs(
+    title="Distribución de la variable Edad (ambos sexos)",
+    y="Frecuencia",
+    x="Edad"
+  )+
+  theme_minimal()
+```
+
+De acuerdo a los resultados, la variable edad parece tener una distribución bimodal, de hecho, nos da luces de uan cierta mezcla de distribuciones, por lo cual se hace necesario el poder analizar esta variable de acuerdo a variables categórigas como es el sexo.
+
+
+```{r, message=FALSE, warning=FALSE}
+# bases de datos por sexo
+df_final_femenino<- BBDD_proyecto_sin_ceros %>% filter(SEXO=="FEMENINO")
+df_final_masculino<- BBDD_proyecto_sin_ceros %>% filter(SEXO=="MASCULINO")
+
+# Edad de Genero femenino
+p1<-ggplot(data=df_final_femenino, aes(x=EDAD))+
+     geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+     geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+     labs(
+       title="Distribución de la variable Edad (Género Femenino)",
+       y="Frecuencia",
+       x="Edad"
+     )+
+     theme_minimal()
+
+# Edad de Genero femenino
+p2<-ggplot(data=df_final_masculino, aes(x=EDAD))+
+     geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+     geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+     labs(
+       title="Distribución de la variable Edad (Género Masculino)",
+       y="Frecuencia",
+       x="Edad"
+     )+
+     theme_minimal()
+
+# Edad de Genero
+p3<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=EDAD))+
+     geom_boxplot() +
+     labs(
+       title="Distribución de la variable Edad (por Sexo)",
+       y="Edad",
+       x="Sexo"
+     )+
+     theme_minimal()
+
+
+p3 + (p1/p2)
+
+```
+
+En este sentido, la distribución de edades en mujeres y homnbres es bastante similar, en cada sexo se puede apreciar una distribución bimodal.
+
+
+
+```{r, message=FALSE, warning=FALSE}
+summary(BBDD_proyecto_sin_ceros$RENTA_PROMEDIO)
+
+# Renta Promedio
+p1<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=RENTA_PROMEDIO))+
+     geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+     geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+     labs(
+       title="Distribución de la variable Renta Promedio",
+       y="Frecuencia",
+       x="Renta Promedio"
+     )+
+     theme_minimal()
+
+# Renta Promedio
+p2<-ggplot(data=BBDD_proyecto_sin_ceros, aes(y=RENTA_PROMEDIO))+
+     geom_boxplot() +
+     labs(
+       title="Distribución de la variable Renta Promedio",
+       y="Distribución",
+       x="Renta Promedio"
+     )+
+     theme_minimal()
+
+p1 + p2
+
+```
+
+En este caso la distribución de la renta está centrada alrededor de 1,7 millones de pesos, donde el 25% más bajo de la distribución de renta está por debajo de los 1.37 millones, mientras que el 25% de los casos con mayores rentas se encuentran entre 1.93 y 3.42 millones de pesos.
+
+```{r, message=FALSE, warning=FALSE}
+summary(df_final_femenino$RENTA_PROMEDIO)
+summary(df_final_masculino$RENTA_PROMEDIO)
+
+
+# Renta Promedio sexo femenino
+BBDD_proyecto_sin_ceros %>% 
+  ggplot(aes(x = SEXO, y = RENTA_PROMEDIO)) +
+  geom_boxplot() +
+  labs(title = "Distribución de variables por la renta promedio",
+       subtitle = "Boxplot por sexo",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Sexo") +
+#   scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+#   theme_ipsum() +
+#   theme(
+#    legend.position="none",
+#     plot.title = element_text(size=11)
+#   ) +
+  geom_jitter(aes(colour = SEXO))
+
+```
+
+Comparando los niveles de renta por sexo se puede notar una cierta similitud en el rango de montos promedio, más aún, las estadísticas de posición (cuartiles) son bastante similares, por lo que podría no haber un efecto del sexo sobre los ingresos promedio. Para las mujeres la mediana de las rentas promedio es 1.58 millones, mientras que para los hombre bordea los 1.62 millones de pesos.
+
+```{r, message=FALSE, warning=FALSE}
+# Sistemas de salud por sexo
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
+  geom_bar()+
+  geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 1.5, color="black")+
+  scale_y_continuous(limits = c(0,400))+
+  labs(
+    title="Distribución de la variable Sistemas de salud",
+    y="Frecuencia",
+    x="Sistemas de salud"
+  )+
+  theme_minimal()
+
+```
+
+Según los datos, la proporción de personas que pertenecen al sistema de salud fonasa es alto tanto en hombres como en mujeres, esto tiene sentido desde el punto de vista que es una base de información de la provincia de Huasco donde existe una alta mayor´´ia de zonas rurales donde el sistema fonasa es predominante.
+
+```{r, message=FALSE, warning=FALSE}
+summary(BBDD_proyecto_sin_ceros$JORNADA)
+
+# Variable Jornada
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=JORNADA))+
+  geom_histogram()+
+  geom_text(stat='count', aes(x = JORNADA, label = ..count..), vjust = -1, hjust=2 , color="black")+
+  scale_x_continuous(limits = c(15,90))+
+  scale_y_continuous(limits = c(0,40))+
+  labs(
+    title="Distribución de la variable Jornada por sexo",
+    y="Frecuencia",
+    x="Sexo"
+  )+
+  theme_minimal()
+```
+
+Podemos notar que prácticamente el 75% de los las personas de la muestra trabajan jornadas de 44 o menos horas semanales, mientras que sólo un caso muestra 88 horas laborales semanales, este caso se debe a ..... (justificar el caso) 
+
+
+
+
+```{r, message=FALSE, warning=FALSE}
+# Estado Vicil
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
+  geom_bar()+
+  geom_text(stat='count', aes(x = ESTADO_CIVIL, label = ..count..), vjust = -1, color="black")+
+  scale_y_continuous(limits = c(0,500))+
+  labs(
+    title="Distribución de la variable Estado Civil",
+    y="Frecuencia",
+    x="Estado Civil"
+  )+
+  theme_minimal()
+```
+
+texto
+
+
+
+
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="80%", echo=FALSE}
 ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
   geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
@@ -170,8 +371,9 @@ ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM))+
   theme_minimal()
 ```
 
-Explorar las variables más importantes
+## Variables Factores
 
+### SEXO
 
 
 
@@ -229,12 +431,12 @@ summary(modelo0)
 
 |Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
 |:---------|:---------:| :---------:|:---------:|:---------:|
-|Intercepto | 7.59163 | 1.49024 |5.094|4.6e-07 ***|
-|EVALUACION_DOCENTEDESTACADO|-2.69256|1.55890|-1.727|0.08460 .|
-|EVALUACION_DOCENTEBASICO|-2.08287 |1.13656|-1.833|0.06732 .|
-|EVALUACION_DOCENTEINSATISFACTORIO|7.87294 |1.52249|5.171|3.1e-07 ***|
-|EVALUACION_DOCENTECOMPETENTE|-1.91725 |1.12365|-1.706|0.08844 .|
-|CALIDAD_DESEMPEÑOTITULAR|2.65846|0.72190|3.683|0.00025 ***|
-|NIVELMEDIA|-1.84583|0.63467|-2.908|0.00376 **|
+|Intercepto | 7.59163 | 1.49024 |5.094|4.6e-07 |
+|EVALUACION_DOCENTEDESTACADO|-2.69256|1.55890|-1.727|0.08460 |
+|EVALUACION_DOCENTEBASICO|-2.08287 |1.13656|-1.833|0.06732 |
+|EVALUACION_DOCENTEINSATISFACTORIO|7.87294 |1.52249|5.171|3.1e-07|
+|EVALUACION_DOCENTECOMPETENTE|-1.91725 |1.12365|-1.706|0.08844|
+|CALIDAD_DESEMPEÑOTITULAR|2.65846|0.72190|3.683|0.00025 |
+|NIVELMEDIA|-1.84583|0.63467|-2.908|0.00376 |
 |EDAD|0.06085|0.02425|2.509|0.01233|
 
