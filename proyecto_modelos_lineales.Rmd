@@ -10,20 +10,35 @@ header-includes:
   - \usepackage{dutchcal}
 ---
 
-## Construcción de objeto de investigación
+## Objeto de investigación
 
 ### Planteamiento del Problema
 ¿Cuáles son los hechos o fenómenos?; ¿Qué dicen los datos?
 
+
+
+
 ### Justificación del Problema
  Las razones que conducen a investigar el fenómeno.
+  
+  - Actualmente no se conoce el estado e impacto de licencias médicas de funcionarios de la educación en la provincia de Huasco durante el año 2022 ...
+
 
 ###  Estado del Arte
 ¿Qué se ha dicho del tema en cuestión?; ¿Cómo lo han
 investigado?; ¿Qué tipo de metodología utilizan?
 
+NICO
+
 ### Objetivo General y Obbjetivo Especifico
+
 ¿Para qué y cómo abordar la investigación?
+  - Obj General: La investigación surge por el interes de comprender el alto volumen de licencias medicas por funcionarios ...
+  
+  - Obj Especificos:
+    - Obtener, recopilar y extraer las caracteristicas más importantes que aporten al estudio de la investigación ....
+    - Creación, definición y validación de un procedimiento exploratorio para las variables más importantes a estudiar ...
+
 Es la fase procedimental que conduce o guía a todo proyecto.
 
 ### Plateamiento de la hipótesis en el estudio
@@ -38,8 +53,9 @@ Es la fase procedimental que conduce o guía a todo proyecto.
 
 Análisis de datos: ¿Qué dicen los datos?
 
-Conclusiones de la investigación: ¿Se ha cumplido los planteamientos o postulados?
+La base de datos esta compuesta por $1.109$ observaciones y $24$ columnas detalladas a continuación:
 
+### Descripción de los datos
 \begin{center}
     \begin{tabular}{|c|}
         \hline
@@ -101,3 +117,107 @@ Conclusiones de la investigación: ¿Se ha cumplido los planteamientos o postula
         \hline
     \end{tabular}
 \end{center}
+
+
+Detalle de ETL de los datos
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="70%", include = FALSE}
+library(readxl)
+library(tidyverse)
+
+setwd("~/Desktop/MAGISTER/modelos_lineales/")
+BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
+```
+
+ -NOTA:  Agregar el histograma incluyendo los casos de profesionales sin licencias médicas
+
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+BBDD_proyecto <- BBDD_proyecto %>% mutate_at(c("SEXO","ESTADO_CIVIL",
+                              "SISTEMA_SALUD","NIVEL",
+                              "TIPO_ESTABLECIMIENTO",
+                              "CALIDAD_DESEMPEÑO",
+                              "COMUNA_ESTABLECIMIENTO",
+                              "ESTAMENTO","TRAMO_DOCENTE"),factor)
+
+BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
+                                           levels = c("SIN EVALUACIÓN",
+                                                      "DESTACADO",
+                                                      "BASICO",
+                                                      "INSATISFACTORIO",
+                                                      "COMPETENTE"))
+
+BBDD_proyecto_sin_ceros <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
+
+ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
+  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
+             color = "blue", linetype = "dashed", size = 1)+
+  theme_minimal()
+```
+
+
+Boxplot de días promedios de licencias medicas
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM))+
+  stat_boxplot(geom = "errorbar",width = 0.15) +
+  geom_boxplot(fill="#FF6666")+
+  theme_minimal()
+```
+
+Explorar las variables más importantes
+
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+hist(BBDD_proyecto_sin_ceros$PROMEDIO_DIAS_LM,freq = FALSE,
+     main = "Histograma de Licencia Días Promedio",
+     xlab = "Días", ylab = "Frecuencia")
+```
+
+
+
+
+## Selección Formal de Modelo
+
+Para la selección del modelo forward se utilizo una significancia del 5% en cada uno de los test de hipótesis realizados
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+modelo0 = lm(PROMEDIO_DIAS_LM ~ 1, data = BBDD_proyecto_sin_ceros)
+add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
+       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
+       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
+     test="F") 
+
+
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE, data = BBDD_proyecto_sin_ceros)
+add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
+       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
+       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
+     test="F") 
+
+
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO, data = BBDD_proyecto_sin_ceros)
+add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
+       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
+       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
+     test="F") 
+
+
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL, data = BBDD_proyecto_sin_ceros)
+add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
+       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
+       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
+     test="F") 
+
+
+modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL + EDAD, data = BBDD_proyecto_sin_ceros)
+add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
+       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
+       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
+     test="F") 
+     
+summary(modelo0)
+contrasts(BBDD_proyecto_sin_ceros$EVALUACION_DOCENTE)
+```
