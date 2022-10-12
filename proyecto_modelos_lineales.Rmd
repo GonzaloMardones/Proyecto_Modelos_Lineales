@@ -82,9 +82,9 @@ metodologia a traves de regresiones lineales debido a que se quiere explocar ...
             \hline
              \textbf{Variable} & \textbf{Tipo} & \textbf{Descripción}\\
              \hline
-             SEXO & Factor & ...\\
+             SEXO & Factor & Sexos encontrados: Masculino o femenino\\
             \hline
-             ESTADO\_CIVIL & Factor & ...\\
+             ESTADO\_CIVIL & Factor & Relación de familia, provenientes al matrimonio \\
             \hline
              EDAD & Double & ...\\
             \hline
@@ -98,7 +98,7 @@ metodologia a traves de regresiones lineales debido a que se quiere explocar ...
             \hline                         
              TIPO\_ESTABLECIMIENTO & Factor &...\\
             \hline                                    
-             CALIDAD\_DESEMPEÑO & Factor &profe jefe o no \\
+             CALIDAD\_DESEMPEÑO & Factor & profe jefe o no \\
             \hline  
              TRAMO\_DOCENTE & Factor &...\\
             \hline                          
@@ -156,44 +156,86 @@ BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
 BBDD_proyecto_sin_ceros <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
 ```
 
-## Estadística Descriptiva Oscar
+\newpage
+
+## Estadística Descriptiva
+
+A continuación se presenta análisis descriptivos para las variables más relevantes del estudio, de las cuales destacamos días promedios de licencias médicas, .....
 
 
-```{r, message=FALSE, warning=FALSE}
- 
+### Distribución de Licencias Médicas
 
-#kable(summary(BBDD_proyecto_sin_ceros))
+El gráfico de la izquierda muestra la distribución de licencias médicas que incluyen a los docentes/funcionarios que no han presentado licencias médicas hasta la fecha, en el gráfico de la derecha se muestra la distribución de licencias médicas pero descartando los casos de docentes/funcionarios que no han presentado licencias médicas, siendo este el grupo de personas empleadas para el análisis
 
+
+```{r fig.align="center", warning=FALSE, message=FALSE, echo=FALSE,out.width="80%", out.height="100%"}
+p1<- ggplot(BBDD_proyecto, aes(x = PROMEDIO_DIAS_LM)) +
+  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
+             color = "blue", linetype = "dashed", size = 1)+
+  theme_minimal()+
+  labs(
+  title="Distribución de Licencias Médicas",
+  subtitle = "Considerando día cero",
+  y="Densidad",
+  x="Días Promedios",
+   caption = "Elaboración Propia"
+  )
+  
+
+p2<- ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
+  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
+             color = "blue", linetype = "dashed", size = 1)+
+  theme_minimal()+
+  labs(
+  title="Distribución de Licencias Médicas",
+  subtitle = "Descartando día cero",
+  y="Densidad",
+  x="Días Promedios",
+  caption = "Elaboración Propia"
+  )
+
+cowplot::plot_grid(p1,p2)
+
+```
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="100%", echo=FALSE}
 # Variable Sexo
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
+p1<- ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
   geom_bar()+
   scale_y_continuous(limits = c(0,500))+
   geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 2, color="white")+
   labs(
     title="Distribución de la variable Sexo",
     y="Frecuencia",
-    x="Sexo"
+    x="Sexo",
+    caption = "Elaboración Propia"
   )+
   theme_minimal()
-```
 
-```{r, message=FALSE, warning=FALSE}
-# Distribución Edad: Ambos sexos
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
+p2 <-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
   geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
   geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
   labs(
-    title="Distribución de la variable Edad (ambos sexos)",
+    title="Distribución de la variable Edad",
+    subtitle = "ambos sexos",
     y="Frecuencia",
-    x="Edad"
+    x="Edad",
+    caption = "Elaboración Propia"
   )+
   theme_minimal()
+
+cowplot::plot_grid(p1,p2)
+
 ```
 
 De acuerdo a los resultados, la variable edad parece tener una distribución bimodal, de hecho, nos da luces de uan cierta mezcla de distribuciones, por lo cual se hace necesario el poder analizar esta variable de acuerdo a variables categórigas como es el sexo.
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 # bases de datos por sexo
 df_final_femenino<- BBDD_proyecto_sin_ceros %>% filter(SEXO=="FEMENINO")
 df_final_masculino<- BBDD_proyecto_sin_ceros %>% filter(SEXO=="MASCULINO")
@@ -203,7 +245,8 @@ p1<-ggplot(data=df_final_femenino, aes(x=EDAD))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
      labs(
-       title="Distribución de la variable Edad (Género Femenino)",
+       title="Distribución de la variable Edad",
+       subtitle = "Género Femenino",
        y="Frecuencia",
        x="Edad"
      )+
@@ -214,7 +257,8 @@ p2<-ggplot(data=df_final_masculino, aes(x=EDAD))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
      labs(
-       title="Distribución de la variable Edad (Género Masculino)",
+       title="Distribución de la variable Edad",
+       subtitle = "Género Masculino",
        y="Frecuencia",
        x="Edad"
      )+
@@ -224,11 +268,14 @@ p2<-ggplot(data=df_final_masculino, aes(x=EDAD))+
 p3<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=EDAD))+
      geom_boxplot() +
      labs(
-       title="Distribución de la variable Edad (por Sexo)",
+       title="Distribución de la variable Edad",
+       subtitle = "Por Sexo",
        y="Edad",
-       x="Sexo"
+       x="Sexo",
+       caption = "Elaboración Propia"
      )+
-     theme_minimal()
+    geom_jitter(aes(colour = SEXO))+
+    theme_minimal()
 
 
 p3 + (p1/p2)
@@ -239,7 +286,7 @@ En este sentido, la distribución de edades en mujeres y homnbres es bastante si
 
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE,  out.width="80%", out.height="100%"}
 summary(BBDD_proyecto_sin_ceros$RENTA_PROMEDIO)
 
 # Renta Promedio
@@ -247,7 +294,8 @@ p1<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=RENTA_PROMEDIO))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
      labs(
-       title="Distribución de la variable Renta Promedio",
+       title="Distribución de la variable",
+       subtitle = "Renta Promedio",
        y="Frecuencia",
        x="Renta Promedio"
      )+
@@ -257,9 +305,11 @@ p1<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=RENTA_PROMEDIO))+
 p2<-ggplot(data=BBDD_proyecto_sin_ceros, aes(y=RENTA_PROMEDIO))+
      geom_boxplot() +
      labs(
-       title="Distribución de la variable Renta Promedio",
+       title="Distribución de la variable",
+       subtitle = "Renta Promedio",
        y="Distribución",
-       x="Renta Promedio"
+       x="Renta Promedio",
+       caption = "Elaboración Propia"
      )+
      theme_minimal()
 
@@ -269,7 +319,7 @@ p1 + p2
 
 En este caso la distribución de la renta está centrada alrededor de 1,7 millones de pesos, donde el 25% más bajo de la distribución de renta está por debajo de los 1.37 millones, mientras que el 25% de los casos con mayores rentas se encuentran entre 1.93 y 3.42 millones de pesos.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo = FALSE,  out.width="80%", out.height="100%"}
 summary(df_final_femenino$RENTA_PROMEDIO)
 summary(df_final_masculino$RENTA_PROMEDIO)
 
@@ -294,7 +344,7 @@ BBDD_proyecto_sin_ceros %>%
 
 Comparando los niveles de renta por sexo se puede notar una cierta similitud en el rango de montos promedio, más aún, las estadísticas de posición (cuartiles) son bastante similares, por lo que podría no haber un efecto del sexo sobre los ingresos promedio. Para las mujeres la mediana de las rentas promedio es 1.58 millones, mientras que para los hombre bordea los 1.62 millones de pesos.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%",  echo = FALSE}
 # Sistemas de salud por sexo
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
   geom_bar()+
@@ -311,7 +361,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
 
 Según los datos, la proporción de personas que pertenecen al sistema de salud fonasa es alto tanto en hombres como en mujeres, esto tiene sentido desde el punto de vista que es una base de información de la provincia de Huasco donde existe una alta mayor´´ia de zonas rurales donde el sistema fonasa es predominante.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%", echo = FALSE}
 summary(BBDD_proyecto_sin_ceros$JORNADA)
 
 # Variable Jornada
@@ -333,7 +383,7 @@ Podemos notar que prácticamente el 75% de los las personas de la muestra trabaj
 
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, echo = FALSE}
 # Estado Vicil
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
   geom_bar()+
@@ -351,25 +401,6 @@ texto
 
 
 
-
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="80%", echo=FALSE}
-ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
-  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
-  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
-  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
-             color = "blue", linetype = "dashed", size = 1)+
-  theme_minimal()
-```
-
-
-Boxplot de días promedios de licencias medicas
-
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="80%", echo=FALSE}
-ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM))+
-  stat_boxplot(geom = "errorbar",width = 0.15) +
-  geom_boxplot(fill="#FF6666")+
-  theme_minimal()
-```
 
 ## Variables Factores
 
