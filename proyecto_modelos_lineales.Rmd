@@ -356,7 +356,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
 
 ```
 
-Según los datos, la proporción de personas que pertenecen al sistema de salud fonasa es alto tanto en hombres como en mujeres, esto tiene sentido desde el punto de vista que es una base de información de la provincia de Huasco donde existe una alta mayor´´ia de zonas rurales donde el sistema fonasa es predominante.
+Según los datos, la proporción de personas que pertenecen al sistema de salud fonasa es alto tanto en hombres como en mujeres, esto tiene sentido desde el punto de vista que es una base de información de la provincia de Huasco donde existe una alta mayoría de zonas rurales donde el sistema fonasa es predominante.
 
 ```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%", echo = FALSE}
 summary(BBDD_proyecto_sin_ceros$JORNADA)
@@ -365,7 +365,7 @@ summary(BBDD_proyecto_sin_ceros$JORNADA)
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=JORNADA))+
   geom_histogram()+
   geom_text(stat='count', aes(x = JORNADA, label = ..count..), vjust = -1, hjust=2 , color="black")+
-  scale_x_continuous(limits = c(15,90))+
+  # scale_x_continuous(limits = c(15,90))+
   scale_y_continuous(limits = c(0,40))+
   labs(
     title="Distribución de la variable Jornada por sexo",
@@ -385,7 +385,7 @@ Podemos notar que prácticamente el 75% de los las personas de la muestra trabaj
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
   geom_bar()+
   geom_text(stat='count', aes(x = ESTADO_CIVIL, label = ..count..), vjust = -1, color="black")+
-  scale_y_continuous(limits = c(0,500))+
+  scale_y_continuous(limits = c(0,700))+
   labs(
     title="Distribución de la variable Estado Civil",
     y="Frecuencia",
@@ -402,7 +402,7 @@ texto
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
   geom_bar()+
   geom_text(stat='count', aes(x = EVALUACION_DOCENTE, label = ..count..), vjust = -1, color="black")+
-  scale_y_continuous(limits = c(0,500))+
+  scale_y_continuous(limits = c(0,350))+
   labs(
     title="Distribución de la variable Evaluación Docente",
     y="Frecuencia",
@@ -417,11 +417,11 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
   geom_bar()+
   geom_text(stat='count', aes(x = TRAMO_DOCENTE, label = ..count..), vjust = -1, color="black")+
-  scale_y_continuous(limits = c(0,500))+
+  scale_y_continuous(limits = c(0,250))+
   labs(
-    title="Distribución de la variable Evaluación Docente",
+    title="Distribución de la variable Tramo Docente",
     y="Frecuencia",
-    x="Evaluación Docente",
+    x="Tramo Docente",
     caption = "Elaboración Propia"
   )+
   theme_minimal()
