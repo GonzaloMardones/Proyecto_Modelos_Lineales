@@ -420,6 +420,22 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
     caption = "Elaboración Propia"
   )+
   theme_minimal()
+
+
+ggplot(BBDD_proyecto_sin_ceros, aes(EVALUACION_DOCENTE, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=EVALUACION_DOCENTE))+
+  xlab("Evaluación Docente")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución de la variable Evaluación Docente",
+       # subtitle = "Boxplot por EVALUACION_DOCENTE",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Evaluación Docente") +  
+  theme(
+    legend.position = "none"
+  )+
+  scale_fill_brewer(palette = "Set2")+
+  geom_jitter(color="black", size=0.3, alpha=0.9)
+
 ```
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE}
