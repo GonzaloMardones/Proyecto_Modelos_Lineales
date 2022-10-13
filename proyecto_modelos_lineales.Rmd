@@ -311,7 +311,8 @@ p2<-ggplot(data=BBDD_proyecto_sin_ceros, aes(y=RENTA_PROMEDIO))+
        x="Renta Promedio",
        caption = "Elaboración Propia"
      )+
-     theme_minimal()
+    theme(legend.position = "none")+
+    scale_fill_brewer(palette = "Set2")
 
 p1 + p2
 
@@ -323,23 +324,19 @@ En este caso la distribución de la renta está centrada alrededor de 1,7 millon
 summary(df_final_femenino$RENTA_PROMEDIO)
 summary(df_final_masculino$RENTA_PROMEDIO)
 
-
-# Renta Promedio sexo femenino
-BBDD_proyecto_sin_ceros %>% 
-  ggplot(aes(x = SEXO, y = RENTA_PROMEDIO)) +
-  geom_boxplot() +
+ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, RENTA_PROMEDIO)) +
+  geom_boxplot(aes(fill=SEXO))+
+  xlab("SEXO")+
+  ylab("Renta Promedio")+
   labs(title = "Distribución de variables por la renta promedio",
        subtitle = "Boxplot por sexo",
        caption = "Elaboración Propia")  +
-  labs(fill = "Sexo") +
-#   scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
-#   theme_ipsum() +
-#   theme(
-#    legend.position="none",
-#     plot.title = element_text(size=11)
-#   ) +
-  geom_jitter(aes(colour = SEXO))
-
+  labs(fill = "Sexo") +  
+  theme(
+    legend.position = "none"
+  )+
+  scale_fill_brewer(palette = "Set2")+
+  geom_jitter(color="black", size=0.3, alpha=0.9)
 ```
 
 Comparando los niveles de renta por sexo se puede notar una cierta similitud en el rango de montos promedio, más aún, las estadísticas de posición (cuartiles) son bastante similares, por lo que podría no haber un efecto del sexo sobre los ingresos promedio. Para las mujeres la mediana de las rentas promedio es 1.58 millones, mientras que para los hombre bordea los 1.62 millones de pesos.
@@ -383,7 +380,7 @@ Podemos notar que prácticamente el 75% de los las personas de la muestra trabaj
 
 
 
-```{r, message=FALSE, warning=FALSE, echo = FALSE}
+```{r, message=FALSE, warning=FALSE,out.width="80%", out.height="100%", echo = FALSE}
 # Estado Vicil
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
   geom_bar()+
@@ -400,12 +397,35 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
 texto
 
 
+```{r, message=FALSE, warning=FALSE, echo = FALSE}
+# Evaluación Docente
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
+  geom_bar()+
+  geom_text(stat='count', aes(x = EVALUACION_DOCENTE, label = ..count..), vjust = -1, color="black")+
+  scale_y_continuous(limits = c(0,500))+
+  labs(
+    title="Distribución de la variable Evaluación Docente",
+    y="Frecuencia",
+    x="Evaluación Docente",
+    caption = "Elaboración Propia"
+  )+
+  theme_minimal()
+```
 
-
-## Variables Factores
-
-### SEXO
-
+```{r, message=FALSE, warning=FALSE, echo = FALSE}
+# Evaluación Docente
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
+  geom_bar()+
+  geom_text(stat='count', aes(x = TRAMO_DOCENTE, label = ..count..), vjust = -1, color="black")+
+  scale_y_continuous(limits = c(0,500))+
+  labs(
+    title="Distribución de la variable Evaluación Docente",
+    y="Frecuencia",
+    x="Evaluación Docente",
+    caption = "Elaboración Propia"
+  )+
+  theme_minimal()
+```
 
 
 
