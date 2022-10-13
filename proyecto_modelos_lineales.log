@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  13 OCT 2022 00:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  13 OCT 2022 01:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1033,129 +1033,126 @@ c file (type pdf)
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
 hunk-5-1.pdf  used on input line 289.
 (pdftex.def)             Requested size: 449.69948pt x 305.1532pt.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-95.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [3 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf> <./
-proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-6-1.pdf, id=74, 458
-.71375pt x 305.14pt>
+[3 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf> <./pr
+oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-6-1.pdf, id=74, 450
+.68375pt x 305.14pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-6-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-6-1.pdf  used on input line 300.
-(pdftex.def)             Requested size: 375.82574pt x 250.00223pt.
+hunk-6-1.pdf  used on input line 323.
+(pdftex.def)             Requested size: 375.821pt x 254.45341pt.
 <proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf, id=75, 453
 .695pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-7-1.pdf  used on input line 317.
+hunk-7-1.pdf  used on input line 392.
 (pdftex.def)             Requested size: 375.80525pt x 261.06824pt.
-[4 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-6-1.pdf> <./pr
-oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf, id=104, 45
+[4 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-6-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf, id=101, 45
 3.695pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-8-1.pdf  used on input line 326.
+hunk-8-1.pdf  used on input line 401.
 (pdftex.def)             Requested size: 375.80525pt x 259.40538pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf, id=105, 45
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+09.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [5 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf, id=125, 45
 9.7175pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-9-1.pdf  used on input line 339.
+hunk-9-1.pdf  used on input line 414.
 (pdftex.def)             Requested size: 375.82738pt x 256.02214pt.
-[5 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf> <./pr
-oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-10-1.pdf, id=124, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-10-1.pdf, id=126, 4
 59.7175pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-10-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-10-1.pdf  used on input line 346.
+hunk-10-1.pdf  used on input line 421.
 (pdftex.def)             Requested size: 375.82738pt x 256.02214pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf, id=125, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf, id=127, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-11-1.pdf  used on input line 350.
+hunk-11-1.pdf  used on input line 425.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-2.pdf, id=126, 4
+[6 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf> <./pr
+oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-10-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-2.pdf, id=147, 4
 53.695pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-2.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-2.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-11-2.pdf  used on input line 351.
+hunk-11-2.pdf  used on input line 427.
 (pdftex.def)             Requested size: 453.6939pt x 315.17673pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 350--352
-[][]
- []
-
-[6 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-10-1.pdf> <./p
-royecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf, id=146, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf, id=148, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-12-1.pdf  used on input line 353.
+hunk-12-1.pdf  used on input line 429.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
+[7 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf> <./p
+royecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-2.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 356.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 432.
 
-Overfull \hbox (21.64383pt too wide) in paragraph at lines 356--356
+Overfull \hbox (21.64383pt too wide) in paragraph at lines 432--432
 [][]\T1/lmtt/b/n/14.4 {r, message=FALSE, warning=FALSE} # df_num<-df_final[,c(1
 ,4,5,7)]
  []
 
 
-Overfull \hbox (82.12369pt too wide) in paragraph at lines 356--356
+Overfull \hbox (82.12369pt too wide) in paragraph at lines 432--432
 \T1/lmtt/b/n/14.4 # se seleccionan las columnas continuas # correlacion<-round(
 cor(df_num),
  []
 
-[7 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-2.pdf> <./p
-royecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf>]
+[8 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-406.
+482.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [8] [9] (./proyecto_modelos_lineales.aux) ) 
+) [9] (./proyecto_modelos_lineales.aux) ) 
 Here is how much of TeX's memory you used:
- 34491 strings out of 478268
- 795670 string characters out of 5846348
- 1183672 words of memory out of 5000000
- 51966 multiletter control sequences out of 15000+600000
+ 34513 strings out of 478268
+ 796329 string characters out of 5846348
+ 1184032 words of memory out of 5000000
+ 51981 multiletter control sequences out of 15000+600000
  519474 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,14n,80p,2360b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dis
-t/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/d
-vips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmb
-x10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022
-/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist
-/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
-e1/public/lm/lmtt10.pfb>
-Output written on proyecto_modelos_lineales.pdf (9 pages, 394744 bytes).
+{/usr/local/texlive/2022/texmf-dist/fo
+nts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips
+/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
+enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/loca
+l/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/
+2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf
+-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/font
+s/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
+lic/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr1
+7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on proyecto_modelos_lineales.pdf (9 pages, 400529 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 228 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 500000)
- 28863 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 312 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 28879 words of extra memory for PDF output out of 29859 (max. 10000000)
 

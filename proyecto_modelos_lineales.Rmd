@@ -239,7 +239,7 @@ cowplot::plot_grid(p1,p2)
 De acuerdo a los resultados, la variable edad parece tener una distribución bimodal, de hecho, nos da luces de uan cierta mezcla de distribuciones, por lo cual se hace necesario el poder analizar esta variable de acuerdo a variables categórigas como es el sexo.
 
 
-```{r, message=FALSE, warning=FALSE, echo=FALSE}
+```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.align="center"}
 # bases de datos por sexo
 df_final_femenino<- BBDD_proyecto_sin_ceros %>% filter(SEXO=="FEMENINO")
 df_final_masculino<- BBDD_proyecto_sin_ceros %>% filter(SEXO=="MASCULINO")
@@ -292,18 +292,22 @@ p3 + (p1/p2)
 En este sentido, la distribución de edades en mujeres y homnbres es bastante similar, en cada sexo se puede apreciar una distribución bimodal.
 
 
+|Min.|1st Qu.|Mediana | Promedio | 3rd Qu. | Max. |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|$\$705.804$| $\$1.377.071$ | $\$1.609.868$ | $\$1.668.484$ | $\$1.931.119$ | $\$3.420.643$ | 
 
-```{r, message=FALSE, warning=FALSE, echo=FALSE,  out.width="80%", out.height="100%"}
-summary(BBDD_proyecto_sin_ceros$RENTA_PROMEDIO)
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE,  out.width="80%", out.height="100%", fig.align="center"}
+# summary(BBDD_proyecto_sin_ceros$RENTA_PROMEDIO)
 
 # Renta Promedio
 p1<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=RENTA_PROMEDIO))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
-     scale_y_continuous(labels = comma)+
+     scale_x_continuous(labels = comma)+
      labs(
        title="Distribución Renta Promedio",
-       y="Frecuencia",
+       y="Densidad",
        x="Renta Promedio"
      )+
      theme_minimal()
@@ -333,17 +337,31 @@ p1 + p2
 
 En este caso la distribución de la renta está centrada alrededor de 1,7 millones de pesos, donde el 25% más bajo de la distribución de renta está por debajo de los 1.37 millones, mientras que el 25% de los casos con mayores rentas se encuentran entre 1.93 y 3.42 millones de pesos.
 
-```{r, message=FALSE, warning=FALSE, echo = FALSE,  out.width="80%", out.height="100%"}
-summary(df_final_femenino$RENTA_PROMEDIO)
-summary(df_final_masculino$RENTA_PROMEDIO)
+
+### Femenino
+
+|Min.|1st Qu.|Mediana | Promedio | 3rd Qu. | Max. |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|$\$770.197$| $\$1.362.827$ | $\$1.592.526$ | $\$1.652.053$ | $\$1.904.939$ | $\$3.420.643$ |  
+
+### Masculino
+
+|Min.|1st Qu.|Mediana | Promedio | 3rd Qu. | Max. |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|$\$705.804$| $\$1.397.245$ | $\$1.626.350$ | $\$1.741.390$ | $\$2.029.702$ | $\$3.233.292$ |
+
+
+
+```{r, message=FALSE, warning=FALSE, echo = FALSE,  out.width="80%", out.height="100%", fig.align="center"}
+# summary(df_final_femenino$RENTA_PROMEDIO)
+# summary(df_final_masculino$RENTA_PROMEDIO)
 
 ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, RENTA_PROMEDIO)) +
   geom_boxplot(aes(fill=SEXO))+
   xlab("SEXO")+
   ylab("Renta Promedio")+
   scale_y_continuous(labels = comma)+
-  labs(title = "Distribución de variables por la renta promedio",
-       subtitle = "Boxplot por sexo",
+  labs(title = "Distribución por Renta Promedio",
        caption = "Elaboración Propia")  +
   labs(fill = "Sexo") +  
   theme(
@@ -356,7 +374,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, RENTA_PROMEDIO)) +
 
 Comparando los niveles de renta por sexo se puede notar una cierta similitud en el rango de montos promedio, más aún, las estadísticas de posición (cuartiles) son bastante similares, por lo que podría no haber un efecto del sexo sobre los ingresos promedio. Para las mujeres la mediana de las rentas promedio es 1.58 millones, mientras que para los hombre bordea los 1.62 millones de pesos.
 
-```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%",  echo = FALSE}
+```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%",  echo = FALSE, fig.align="center"}
 # Sistemas de salud por sexo
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
   geom_bar()+
@@ -374,7 +392,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
 
 Según los datos, la proporción de personas que pertenecen al sistema de salud fonasa es alto tanto en hombres como en mujeres, esto tiene sentido desde el punto de vista que es una base de información de la provincia de Huasco donde existe una alta mayoría de zonas rurales donde el sistema fonasa es predominante.
 
-```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%", echo = FALSE}
+```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%", echo = FALSE, fig.align="center"}
 summary(BBDD_proyecto_sin_ceros$JORNADA)
 
 # Variable Jornada
@@ -396,7 +414,7 @@ Podemos notar que prácticamente el 75% de los las personas de la muestra trabaj
 
 
 
-```{r, message=FALSE, warning=FALSE,out.width="80%", out.height="100%", echo = FALSE}
+```{r, message=FALSE, warning=FALSE,out.width="80%", out.height="100%", echo = FALSE, fig.align="center"}
 # Estado Vicil
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
   geom_bar()+
@@ -413,7 +431,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
 texto
 
 
-```{r, message=FALSE, warning=FALSE, echo = FALSE}
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
 # Evaluación Docente
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
   geom_bar()+
@@ -445,7 +463,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(EVALUACION_DOCENTE, PROMEDIO_DIAS_LM)) +
 
 ```
 
-```{r, message=FALSE, warning=FALSE, echo = FALSE}
+```{r, message=FALSE, warning=FALSE, echo = FALSE, fig.align="center"}
 # Evaluación Docente
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
   geom_bar()+
