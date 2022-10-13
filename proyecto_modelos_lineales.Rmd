@@ -345,13 +345,14 @@ Comparando los niveles de renta por sexo se puede notar una cierta similitud en 
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
   geom_bar()+
   geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 1.5, color="black")+
-  scale_y_continuous(limits = c(0,400))+
+  scale_y_continuous(limits = c(0,500))+
   labs(
     title="Distribución de la variable Sistemas de salud",
     y="Frecuencia",
     x="Sistemas de salud"
   )+
   theme_minimal()
+
 
 ```
 
