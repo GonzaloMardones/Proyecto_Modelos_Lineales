@@ -152,7 +152,17 @@ BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
                                                       "INSATISFACTORIO",
                                                       "COMPETENTE"))
 
-BBDD_proyecto_sin_ceros <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
+
+BBDD_proyecto_sin_ceros_ <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
+dim(BBDD_proyecto_sin_ceros_)
+
+# Seleccion de muestra aleatoria de tamaño 500
+n <- dim(BBDD_proyecto_sin_ceros_)[1]
+set.seed(20221012)
+id_sample <- sample(1:n,500, replace=F)
+BBDD_proyecto_sin_ceros <- BBDD_proyecto_sin_ceros_[id_sample,]
+dim(BBDD_proyecto_sin_ceros)
+
 ```
 
 \newpage
@@ -205,13 +215,13 @@ cowplot::plot_grid(p1,p2)
 # Variable Sexo
 p1<- ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
   geom_bar()+
-  scale_y_continuous(limits = c(0,500))+
+  scale_y_continuous(limits = c(0,400))+
   geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 2, color="white")+
   labs(
     title="Distribución de la variable Sexo",
     y="Frecuencia",
     x="Sexo",
-    caption = "Elaboración Propia"
+    caption = "Elaboración Propia: Fem (XX%), Mas (YY%)"
   )+
   theme_minimal()
 
@@ -220,7 +230,7 @@ p2 <-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
   geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
   labs(
     title="Distribución de la variable Edad",
-    subtitle = "ambos sexos",
+    subtitle = "Ambos sexos",
     y="Frecuencia",
     x="Edad",
     caption = "Elaboración Propia"
