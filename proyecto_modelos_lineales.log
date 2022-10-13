@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  12 OCT 2022 22:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  12 OCT 2022 22:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1087,30 +1087,30 @@ hunk-12-1.pdf  used on input line 378.
 royecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf>] [8 <./proy
 ecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-418.
+421.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [9] [10] [11] (./proyecto_modelos_lineales.aux) ) 
+) [9] (./proyecto_modelos_lineales.aux) ) 
 Here is how much of TeX's memory you used:
- 34463 strings out of 478268
- 795130 string characters out of 5846348
- 1183173 words of memory out of 5000000
- 51955 multiletter control sequences out of 15000+600000
+ 34469 strings out of 478268
+ 795184 string characters out of 5846348
+ 1183234 words of memory out of 5000000
+ 51959 multiletter control sequences out of 15000+600000
  512617 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,14n,80p,1022b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/tex
-mf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts
-/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/
-lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.
-pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texliv
-e/2022/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texm
-f-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on proyecto_modelos_lineales.pdf (11 pages, 340249 bytes).
+{/usr/local/texlive/2022/texmf-dist/fo
+nts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips
+/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.
+pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/
+local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texli
+ve/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/tex
+mf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fon
+ts/type1/public/lm/lmtt10.pfb>
+Output written on proyecto_modelos_lineales.pdf (9 pages, 336988 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 39 named destinations out of 1000 (max. 500000)
- 24743 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 24759 words of extra memory for PDF output out of 24883 (max. 10000000)
 

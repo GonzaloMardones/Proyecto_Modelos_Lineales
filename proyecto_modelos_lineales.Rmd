@@ -431,6 +431,8 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
 
 ## Selección Formal de Modelo
 
+### Forward
+
 Para la selección del modelo forward se utilizo una significancia del 5% en cada uno de los test de hipótesis realizados
 
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
@@ -445,7 +447,8 @@ Para decidir la entrada del segundo predictor, se debe evaluar todos los modelos
 
 De acuerdo al caso anterior, el menor valor-p corresponde al modelo PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE
 
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%", echo = FALSE, include =FALSE}
+
 modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE, data = BBDD_proyecto_sin_ceros)
 add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
        SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
@@ -492,3 +495,5 @@ summary(modelo0)
 |NIVELMEDIA|-1.84583|0.63467|-2.908|0.00376 |
 |EDAD|0.06085|0.02425|2.509|0.01233|
 
+
+### Backward
