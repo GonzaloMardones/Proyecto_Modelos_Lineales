@@ -78,44 +78,41 @@ metodologia a traves de regresiones lineales debido a que se quiere explocar ...
     \begin{tabular}{|c|}
         \hline
         \textbf{Base de datos de Licencias Médicas}\\
-        \begin{tabular}{|p{5cm}|p{2cm}|p{8cm}|}
+        \begin{tabular}{|p{5cm}|p{1cm}|p{9cm}|}
             \hline
              \textbf{Variable} & \textbf{Tipo} & \textbf{Descripción}\\
              \hline
-             SEXO & Factor & Sexos encontrados: Masculino o femenino\\
+             SEXO & Factor & Masculino y Femenino\\
             \hline
-             ESTADO\_CIVIL & Factor & Relación de familia, provenientes al matrimonio \\
+             ESTADO\_CIVIL & Factor & Casado(a), Viudo(a), Soltero(a), Divorciado(a) \\
             \hline
-             EDAD & Double & ...\\
+             EDAD & Double & Edad\\
             \hline
-             RENTA\_PROMEDIO & Double & ...\\
+             RENTA\_PROMEDIO & Double & Renta Promedio en Pesos Chilenos\\
             \hline
-             SISTEMA\_SALUD & Factor & ...\\
+             SISTEMA\_SALUD & Factor & Fonasa, Isapre\\
             \hline 
-             JORNADA & Double & ...\\
+             JORNADA & Double & Mediadas en horas semanales\\
             \hline             
-             NIVEL & Factor & ...\\
+             NIVEL & Factor & Básica o Media\\
             \hline                         
-             TIPO\_ESTABLECIMIENTO & Factor &...\\
+             TIPO\_ESTABLECIMIENTO & Factor & Escuela o Liceo\\
             \hline                                    
-             CALIDAD\_DESEMPEÑO & Factor & profe jefe o no \\
+             CALIDAD\_DESEMPEÑO & Factor & Profesor Titular o no\\
             \hline  
-             TRAMO\_DOCENTE & Factor &...\\
+             TRAMO\_DOCENTE & Factor & Inicial, Temprano, Acceso, Avanzado, Experto I, Experto II, Sin Encasillamiento \\
             \hline                          
-             EVALUACION\_DOCENTE & Factor &...\\
+             EVALUACION\_DOCENTE & Factor & Sin Evaluación, Destacado, Básico, Insatisfactorio, Competente\\
             \hline  
-             PROMEDIO\_DIAS\_LM & Double & ...\\
+             PROMEDIO\_DIAS\_LM & Double & Promedio Días de Licencias Médicas\\
             \hline                          
-             TRASLADO\_COMUNA & Double &...\\
+             TRASLADO\_COMUNA & Double & SI (1) o NO (0)\\
             \hline                  
         \end{tabular}\\
         \\
         \hline
     \end{tabular}
 \end{center}
-
-
-Detalle de ETL de los datos
 
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="70%", include = FALSE}
 library(readxl)
@@ -137,7 +134,7 @@ BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
 
 
 
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%", include=FALSE}
 BBDD_proyecto <- BBDD_proyecto %>% mutate_at(c("SEXO","ESTADO_CIVIL",
                               "SISTEMA_SALUD","NIVEL",
                               "TIPO_ESTABLECIMIENTO",
@@ -165,8 +162,6 @@ dim(BBDD_proyecto_sin_ceros)
 
 ```
 
-\newpage
-
 ## Estadística Descriptiva
 
 A continuación se presenta análisis descriptivos para las variables más relevantes del estudio, de las cuales destacamos días promedios de licencias médicas, .....
@@ -177,7 +172,7 @@ A continuación se presenta análisis descriptivos para las variables más relev
 El gráfico de la izquierda muestra la distribución de licencias médicas que incluyen a los docentes/funcionarios que no han presentado licencias médicas hasta la fecha, en el gráfico de la derecha se muestra la distribución de licencias médicas pero descartando los casos de docentes/funcionarios que no han presentado licencias médicas, siendo este el grupo de personas empleadas para el análisis
 
 
-```{r fig.align="center", warning=FALSE, message=FALSE, echo=FALSE,out.width="80%", out.height="100%"}
+```{r fig.align="center", warning=FALSE, message=FALSE, echo=FALSE,out.width="80%", out.height="100%", include=FALSE}
 p1<- ggplot(BBDD_proyecto, aes(x = PROMEDIO_DIAS_LM)) +
   geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
   geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
@@ -215,25 +210,25 @@ cowplot::plot_grid(p1,p2)
 # Variable Sexo
 p1<- ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
   geom_bar()+
-  scale_y_continuous(limits = c(0,400))+
+  scale_y_continuous(limits = c(0,500))+
   geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 2, color="white")+
   labs(
     title="Distribución de la variable Sexo",
     y="Frecuencia",
     x="Sexo",
-    caption = "Elaboración Propia: Fem (XX%), Mas (YY%)"
+    caption = "Elab. Propia: Fem (74.4%), Masc (25.6%)"
   )+
   theme_minimal()
 
 p2 <-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
+  
   geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
   geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
   labs(
     title="Distribución de la variable Edad",
-    subtitle = "Ambos sexos",
-    y="Frecuencia",
+    y="Densidad",
     x="Edad",
-    caption = "Elaboración Propia"
+
   )+
   theme_minimal()
 
@@ -254,37 +249,40 @@ p1<-ggplot(data=df_final_femenino, aes(x=EDAD))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
      labs(
-       title="Distribución de la variable Edad",
-       subtitle = "Género Femenino",
-       y="Frecuencia",
+       title="Distribución Sexo Fem",
+       y="Densidad",
        x="Edad"
      )+
      theme_minimal()
+
 
 # Edad de Genero femenino
 p2<-ggplot(data=df_final_masculino, aes(x=EDAD))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
      labs(
-       title="Distribución de la variable Edad",
-       subtitle = "Género Masculino",
-       y="Frecuencia",
+       title="Distribución Sexo Masc",
+       y="Densidad",
        x="Edad"
      )+
      theme_minimal()
 
 # Edad de Genero
-p3<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=EDAD))+
-     geom_boxplot() +
-     labs(
-       title="Distribución de la variable Edad",
-       subtitle = "Por Sexo",
-       y="Edad",
-       x="Sexo",
-       caption = "Elaboración Propia"
-     )+
-    geom_jitter(aes(colour = SEXO))+
-    theme_minimal()
+p3<- ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, EDAD)) +
+  geom_boxplot(aes(fill=SEXO))+
+  xlab("Sexo")+
+  ylab("Edad")+
+  scale_y_continuous(labels = comma)+
+  labs(title = "Distribución Renta Promedio",
+       subtitle = "Boxplot por sexo",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Sexo") +  
+  theme(
+    legend.position = "none"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  geom_jitter(color="black", size=0.3, alpha=0.9)
 
 
 p3 + (p1/p2)
@@ -302,26 +300,32 @@ summary(BBDD_proyecto_sin_ceros$RENTA_PROMEDIO)
 p1<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=RENTA_PROMEDIO))+
      geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
      geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+     scale_y_continuous(labels = comma)+
      labs(
-       title="Distribución de la variable",
-       subtitle = "Renta Promedio",
+       title="Distribución Renta Promedio",
        y="Frecuencia",
        x="Renta Promedio"
      )+
      theme_minimal()
 
 # Renta Promedio
-p2<-ggplot(data=BBDD_proyecto_sin_ceros, aes(y=RENTA_PROMEDIO))+
-     geom_boxplot() +
-     labs(
-       title="Distribución de la variable",
-       subtitle = "Renta Promedio",
-       y="Distribución",
-       x="Renta Promedio",
-       caption = "Elaboración Propia"
-     )+
-    theme(legend.position = "none")+
-    scale_fill_brewer(palette = "Set2")
+p2<- 
+  ggplot(BBDD_proyecto_sin_ceros, aes(x ="", y = RENTA_PROMEDIO)) +
+  geom_boxplot(aes(fill=RENTA_PROMEDIO))+
+  xlab("Renta Promedio")+
+  ylab("Distribución")+
+  scale_y_continuous(labels = comma)+
+
+  labs(title = "Distribución Renta Promedio",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Renta Promedio") +  
+  theme(
+    legend.position = "none"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  geom_jitter(color="black", size=0.3, alpha=0.9)
+
 
 p1 + p2
 
@@ -337,6 +341,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, RENTA_PROMEDIO)) +
   geom_boxplot(aes(fill=SEXO))+
   xlab("SEXO")+
   ylab("Renta Promedio")+
+  scale_y_continuous(labels = comma)+
   labs(title = "Distribución de variables por la renta promedio",
        subtitle = "Boxplot por sexo",
        caption = "Elaboración Propia")  +
@@ -344,6 +349,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, RENTA_PROMEDIO)) +
   theme(
     legend.position = "none"
   )+
+  theme_minimal()+
   scale_fill_brewer(palette = "Set2")+
   geom_jitter(color="black", size=0.3, alpha=0.9)
 ```
@@ -395,7 +401,7 @@ Podemos notar que prácticamente el 75% de los las personas de la muestra trabaj
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
   geom_bar()+
   geom_text(stat='count', aes(x = ESTADO_CIVIL, label = ..count..), vjust = -1, color="black")+
-  scale_y_continuous(limits = c(0,700))+
+  scale_y_continuous(limits = c(0,500))+
   labs(
     title="Distribución de la variable Estado Civil",
     y="Frecuencia",
@@ -433,6 +439,7 @@ ggplot(BBDD_proyecto_sin_ceros, aes(EVALUACION_DOCENTE, PROMEDIO_DIAS_LM)) +
   theme(
     legend.position = "none"
   )+
+  theme_minimal() + 
   scale_fill_brewer(palette = "Set2")+
   geom_jitter(color="black", size=0.3, alpha=0.9)
 
@@ -453,6 +460,17 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
   theme_minimal()
 ```
 
+
+
+<!-- Correlación -->
+# ```{r, message=FALSE, warning=FALSE}
+# df_num<-df_final[,c(1,4,5,7)]   # se seleccionan las columnas continuas
+# correlacion<-round(cor(df_num), 1)
+# chart.Correlation(df_num, histogram = T, pch = 19)
+# ```
+
+
+Al analizar las correlaciones entre las variables predictoras continuas y el número promedio de dias con licencia se puede apreciar que la mayor correlación la presenta la variable edad con un coeficiente de 0.15 lo que sugiere posible efecto explicativo, seguido por la renta promedio con una correlación de 0.043, mientras que la jornada presente una correlación menor y negativa de -0.063.
 
 
 ## Selección Formal de Modelo
