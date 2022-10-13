@@ -135,7 +135,6 @@ setwd("~/Desktop/MAGISTER/modelos_lineales/")
 BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
 ```
 
- -NOTA:  Agregar el histograma incluyendo los casos de profesionales sin licencias médicas
 
 
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
@@ -479,6 +478,7 @@ add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
 summary(modelo0)
 
 ```
+
 
 |Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
 |:---------|:---------:| :---------:|:---------:|:---------:|
