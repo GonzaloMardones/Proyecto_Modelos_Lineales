@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  14 OCT 2022 20:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  14 OCT 2022 20:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1035,18 +1035,17 @@ c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
 hunk-4-1.pdf  used on input line 407.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
 [4 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-4-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf, id=83, 460
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf, id=84, 460
 .72125pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
 hunk-5-1.pdf  used on input line 484.
-(pdftex.def)             Requested size: 460.72012pt x 315.17673pt.
-[5 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf, id=97, 459
+(pdftex.def)             Requested size: 375.80437pt x 257.08621pt.
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf, id=85, 459
 .7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf Graphi
 c file (type pdf)
@@ -1054,383 +1053,378 @@ c file (type pdf)
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
 hunk-7-1.pdf  used on input line 553.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf, id=98, 459
+[5 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-5-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf, id=99, 459
 .7175pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
 hunk-8-1.pdf  used on input line 555.
-(pdftex.def)             Requested size: 459.7304pt x 313.17877pt.
-[6 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-57.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [7 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf>] [8
-]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf, id=150, 44
+(pdftex.def)             Requested size: 375.82738pt x 256.02214pt.
+[6 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-7-1.pdf> <./pr
+oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-8-1.pdf>] [7]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf, id=143, 44
 9.68pt x 305.14pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf Graphi
 c file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-9-1.pdf  used on input line 713.
+hunk-9-1.pdf  used on input line 716.
 (pdftex.def)             Requested size: 449.69948pt x 305.1532pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf, id=151, 4
+[8 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf, id=162, 4
 53.695pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-11-1.pdf  used on input line 814.
+hunk-11-1.pdf  used on input line 817.
 (pdftex.def)             Requested size: 375.80525pt x 261.06824pt.
-[9 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf, id=175, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf, id=163, 4
 53.695pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-12-1.pdf  used on input line 823.
+hunk-12-1.pdf  used on input line 826.
 (pdftex.def)             Requested size: 375.80525pt x 259.40538pt.
-[10 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf> <./
-proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-13-1.pdf, id=194, 4
+[9 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-11-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-13-1.pdf, id=183, 4
 59.7175pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-13-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-13-1.pdf  used on input line 858.
+hunk-13-1.pdf  used on input line 861.
 (pdftex.def)             Requested size: 375.82738pt x 256.02214pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-14-1.pdf, id=195, 4
+[10 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-12-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-13-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-14-1.pdf, id=203, 4
 59.7175pt x 313.17pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-14-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-14-1.pdf  used on input line 865.
+hunk-14-1.pdf  used on input line 868.
 (pdftex.def)             Requested size: 375.82738pt x 256.02214pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-1.pdf, id=196, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-1.pdf, id=204, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-15-1.pdf  used on input line 869.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[11 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-13-1.pdf> <./
-proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-14-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-2.pdf, id=216, 4
+hunk-15-1.pdf  used on input line 872.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-2.pdf, id=205, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-2.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-2.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-15-2.pdf  used on input line 871.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-16-1.pdf, id=217, 4
+hunk-15-2.pdf  used on input line 874.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+[11 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-14-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-16-1.pdf, id=224, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-16-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-16-1.pdf  used on input line 873.
+hunk-16-1.pdf  used on input line 876.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[12 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-1.pdf> <./
-proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-2.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-17-1.pdf, id=236, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-17-1.pdf, id=225, 4
 29.605pt x 285.065pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-17-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-17-1.pdf  used on input line 897.
+hunk-17-1.pdf  used on input line 881.
 (pdftex.def)             Requested size: 429.60394pt x 285.0643pt.
-[13 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-16-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-18-1.pdf, id=251, 4
+[12 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-15-2.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-16-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-18-1.pdf, id=245, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-18-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-18-1.pdf  used on input line 906.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[14 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-17-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-19-1.pdf, id=263, 4
+hunk-18-1.pdf  used on input line 891.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+[13 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-17-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-18-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-19-1.pdf, id=266, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-19-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-19-1.pdf  used on input line 912.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[15 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-18-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-20-1.pdf, id=275, 4
+hunk-19-1.pdf  used on input line 897.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-20-1.pdf, id=267, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-20-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-20-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-20-1.pdf  used on input line 918.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[16 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-19-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-21-1.pdf, id=288, 4
+hunk-20-1.pdf  used on input line 903.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-21-1.pdf, id=268, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-21-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-21-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-21-1.pdf  used on input line 925.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[17 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-20-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-22-1.pdf, id=300, 4
+hunk-21-1.pdf  used on input line 910.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+[14 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-19-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-20-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-22-1.pdf, id=288, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-22-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-22-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-22-1.pdf  used on input line 931.
+hunk-22-1.pdf  used on input line 916.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[18 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-21-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-23-1.pdf, id=312, 4
+[15 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-21-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-22-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-23-1.pdf, id=307, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-23-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-23-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-23-1.pdf  used on input line 938.
+hunk-23-1.pdf  used on input line 923.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[19 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-22-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-24-1.pdf, id=325, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-24-1.pdf, id=308, 4
 60.72125pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-24-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-24-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-24-1.pdf  used on input line 945.
-(pdftex.def)             Requested size: 460.72012pt x 315.17673pt.
-[20 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-23-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-25-1.pdf, id=337, 4
+hunk-24-1.pdf  used on input line 930.
+(pdftex.def)             Requested size: 375.80437pt x 257.08621pt.
+[16 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-23-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-24-1.pdf>]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-25-1.pdf, id=327, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-25-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-25-1.pdf  used on input line 951.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[21 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-24-1.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-26-1.pdf, id=349, 4
+hunk-25-1.pdf  used on input line 936.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-26-1.pdf, id=328, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-26-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-26-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-26-1.pdf  used on input line 961.
-(pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[22 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-25-1.pdf>] [2
-3 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-26-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1054
+hunk-26-1.pdf  used on input line 946.
+(pdftex.def)             Requested size: 375.82738pt x 257.66331pt.
+[17 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-25-1.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-26-1.pdf>]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
+90.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 []\T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_P
 ROMEDIO + JORNADA + NIVEL +
  []
 
 
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 1053--1054
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 1038--1039
 \T1/lmtt/m/n/10 TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSA
 TISFACTORIO + TRASLADO_COMUNA 
  []
 
 
-Overfull \hbox (49.99347pt too wide) in paragraph at lines 1059--1061
+Overfull \hbox (49.99347pt too wide) in paragraph at lines 1044--1046
 \T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PRO
 MEDIO + NIVEL + TIPO_ESTABLECIMIENTO
  []
 
 
-Overfull \hbox (44.74348pt too wide) in paragraph at lines 1066--1068
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 1051--1053
 \T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PRO
 MEDIO + NIVEL +TIPO_ESTABLECIMIENTO
  []
 
 
-Overfull \hbox (44.74348pt too wide) in paragraph at lines 1073--1075
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 1058--1060
 \T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PRO
 MEDIO + NIVEL +TIPO_ESTABLECIMIENTO
  []
 
 
-Overfull \hbox (28.99353pt too wide) in paragraph at lines 1080--1082
+Overfull \hbox (28.99353pt too wide) in paragraph at lines 1065--1067
 \T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_EST
 ABLECIMIENTO + CALIDAD_DESEMPEÑO
  []
 
 
-Overfull \hbox (34.24352pt too wide) in paragraph at lines 1087--1089
+Overfull \hbox (34.24352pt too wide) in paragraph at lines 1072--1074
 \T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + 
 CALIDAD_DESEMPEÑO + TRAMO_DOCENTE
  []
 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1096
+
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 1079--1081
 \T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + 
-   CALIDAD_DESEMPEÑO +
+CALIDAD_DESEMPEÑO + INSATISFACTORIO
  []
 
-
-Underfull \hbox (badness 6125) in paragraph at lines 1101--1103
-\T1/lmtt/m/n/10 PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO +    
- INSATISFACTORIO \T1/lmr/m/n/10 (+20) , valor-p:
- []
-
-[25]
-Overfull \hbox (0.58525pt too wide) in paragraph at lines 1179--1179
+[19]
+Overfull \hbox (0.58525pt too wide) in paragraph at lines 1164--1164
 []|\T1/lmr/m/n/10 (-20) MASCULINO|  
  []
 
 
-Overfull \hbox (1.4978pt too wide) in paragraph at lines 1195--1196
+Overfull \hbox (1.4978pt too wide) in paragraph at lines 1180--1181
 []\T1/lmr/m/n/10 (-20) ESTADO_CIVIL  
  []
 
 
-Overfull \hbox (1.4978pt too wide) in paragraph at lines 1215--1216
+Overfull \hbox (1.4978pt too wide) in paragraph at lines 1200--1201
 []\T1/lmr/m/n/10 (-20) ESTADO_CIVIL  
  []
 
 
-Overfull \hbox (6.71413pt too wide) in paragraph at lines 1234--1234
+Overfull \hbox (6.71413pt too wide) in paragraph at lines 1219--1219
 []|\T1/lmr/m/n/10 (-20) DIVORCIADO(A)|  
  []
 
 
-Overfull \hbox (7.34558pt too wide) in paragraph at lines 1253--1254
+Overfull \hbox (7.34558pt too wide) in paragraph at lines 1238--1239
 []\T1/lmr/m/n/10 (-20) SISTEMA_SALUD  
  []
 
 
-Overfull \hbox (7.34558pt too wide) in paragraph at lines 1273--1274
+Overfull \hbox (7.34558pt too wide) in paragraph at lines 1258--1259
 []\T1/lmr/m/n/10 (-20) SISTEMA_SALUD  
  []
 
 
-Overfull \hbox (19.6469pt too wide) in paragraph at lines 1325--1326
+Overfull \hbox (19.6469pt too wide) in paragraph at lines 1310--1311
 []\T1/lmr/m/n/10 (-20) TIPO_ESTABLECIMIENTO  
  []
 
 
-Overfull \hbox (4.79399pt too wide) in paragraph at lines 1339--1340
+Overfull \hbox (4.79399pt too wide) in paragraph at lines 1324--1325
  []\T1/lmr/m/n/10 (-20) Cantidad_LM
  []
 
 
-Overfull \hbox (19.6469pt too wide) in paragraph at lines 1345--1346
+Overfull \hbox (19.6469pt too wide) in paragraph at lines 1330--1331
 []\T1/lmr/m/n/10 (-20) TIPO_ESTABLECIMIENTO  
  []
 
 
-Overfull \hbox (4.79399pt too wide) in paragraph at lines 1359--1360
+Overfull \hbox (4.79399pt too wide) in paragraph at lines 1344--1345
  []\T1/lmr/m/n/10 (-20) Cantidad_LM
  []
 
 
-Overfull \hbox (21.92412pt too wide) in paragraph at lines 1383--1384
+Overfull \hbox (21.92412pt too wide) in paragraph at lines 1368--1369
 []\T1/lmr/m/n/10 (-20) CALIDAD_DESEMPEÑO  
  []
 
 
-Overfull \hbox (21.92412pt too wide) in paragraph at lines 1403--1404
+Overfull \hbox (21.92412pt too wide) in paragraph at lines 1388--1389
 []\T1/lmr/m/n/10 (-20) CALIDAD_DESEMPEÑO  
  []
 
 
-Overfull \hbox (19.82668pt too wide) in paragraph at lines 1438--1439
+Overfull \hbox (19.82668pt too wide) in paragraph at lines 1423--1424
 []\T1/lmr/m/n/10 (-20) TRASLADO_COMUNA  
  []
 
 
-Overfull \hbox (19.82668pt too wide) in paragraph at lines 1458--1459
+Overfull \hbox (19.82668pt too wide) in paragraph at lines 1443--1444
 []\T1/lmr/m/n/10 (-20) TRASLADO_COMUNA  
  []
 
-[26] [27]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-1.pdf, id=437, 4
+[20] [21]
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-1.pdf, id=412, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-1.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-1.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-1.pdf  used on input line 1486.
+hunk-31-1.pdf  used on input line 1471.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-2.pdf, id=438, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-2.pdf, id=413, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-2.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-2.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-2.pdf  used on input line 1488.
+hunk-31-2.pdf  used on input line 1473.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-3.pdf, id=439, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-3.pdf, id=414, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-3.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-3.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-3.pdf  used on input line 1490.
+hunk-31-3.pdf  used on input line 1475.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-[28 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-1.pdf> <./
+[22 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-1.pdf> <./
 proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-2.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-4.pdf, id=460, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-4.pdf, id=436, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-4.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-4.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-4.pdf  used on input line 1492.
+hunk-31-4.pdf  used on input line 1477.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-5.pdf, id=461, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-5.pdf, id=437, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-5.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-5.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-5.pdf  used on input line 1494.
+hunk-31-5.pdf  used on input line 1479.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-[29 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-3.pdf> <./
+[23 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-3.pdf> <./
 proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-4.pdf>]
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-6.pdf, id=480, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-6.pdf, id=456, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-6.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-6.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-6.pdf  used on input line 1496.
+hunk-31-6.pdf  used on input line 1481.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-7.pdf, id=481, 4
+<proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-7.pdf, id=457, 4
 59.7175pt x 315.1775pt>
 File: proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-7.pdf Graph
 ic file (type pdf)
 <use proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-7.pdf>
 Package pdftex.def Info: proyecto_modelos_lineales_files/figure-latex/unnamed-c
-hunk-31-7.pdf  used on input line 1498.
+hunk-31-7.pdf  used on input line 1483.
 (pdftex.def)             Requested size: 328.84282pt x 225.45119pt.
-[30 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-5.pdf> <./
-proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-6.pdf>] [31 <./pr
+[24 <./proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-5.pdf> <./
+proyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-6.pdf>] [25 <./pr
 oyecto_modelos_lineales_files/figure-latex/unnamed-chunk-31-7.pdf>] (./proyecto
 _modelos_lineales.aux) ) 
 Here is how much of TeX's memory you used:
- 34328 strings out of 478268
- 801869 string characters out of 5846348
- 1207000 words of memory out of 5000000
- 51661 multiletter control sequences out of 15000+600000
+ 34324 strings out of 478268
+ 801841 string characters out of 5846348
+ 1208051 words of memory out of 5000000
+ 51662 multiletter control sequences out of 15000+600000
  529892 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,14n,80p,1022b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/
-lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
-enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/loca
-l/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022
+lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/loca
+l/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022
 /texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2022/texmf-dist/f
 onts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
 /public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm
@@ -1442,10 +1436,10 @@ st/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
 e1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm
 /lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pf
 b>
-Output written on proyecto_modelos_lineales.pdf (31 pages, 607969 bytes).
+Output written on proyecto_modelos_lineales.pdf (25 pages, 535445 bytes).
 PDF statistics:
- 697 PDF objects out of 1000 (max. 8388607)
- 544 compressed objects within 6 object streams
- 125 named destinations out of 1000 (max. 500000)
+ 672 PDF objects out of 1000 (max. 8388607)
+ 525 compressed objects within 6 object streams
+ 120 named destinations out of 1000 (max. 500000)
  35243 words of extra memory for PDF output out of 35830 (max. 10000000)
 
