@@ -226,11 +226,11 @@ Para el siguiente paso, se definirán las variables a las cuales las llamaremos 
 
 tabla_1 <- BBDD_proyecto_sin_ceros %>% 
   group_by(EVALUACION_DOCENTE) %>% 
-  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+  summarise(Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
             Cantidad = sum(CANTIDAD_LM))
 ```
 
@@ -245,14 +245,14 @@ tabla_1 <- BBDD_proyecto_sin_ceros %>%
 
 tabla_endogena_1 <- BBDD_proyecto_sin_ceros %>% 
   group_by(EVALUACION_DOCENTE) %>% 
-  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+  summarise(Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
-knitr::kable(tabla_endogena_1, align = c("l","c","c","c","c","c","c"))
+knitr::kable(tabla_endogena_1, align = c("l","c","c","c","c","c","c"), caption = "Evaluación Docente")
 
 
 
@@ -283,14 +283,14 @@ Al observar cada evaluación se aprecia que la categoría Insatisfactorio resalt
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
 tabla_endogena_2 <- BBDD_proyecto_sin_ceros %>% 
   group_by(TRAMO_DOCENTE) %>% 
-  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+  summarise(Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
-knitr::kable(tabla_endogena_2, align = c("l","c","c","c","c","c","c"))
+knitr::kable(tabla_endogena_2, align = c("l","c","c","c","c","c","c"), caption = "Tramo Docente")
 
 # Boxplot evaluación docente vs dias promedio.
 
@@ -332,24 +332,24 @@ BBDD_proyecto_sin_ceros$INSATISFACTORIO <- factor(BBDD_proyecto_sin_ceros$INSATI
 
 tabla_endogena_3 <- BBDD_proyecto_sin_ceros %>% 
   group_by(INSATISFACTORIO) %>% 
-  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+  summarise(Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
-knitr::kable(tabla_endogena_3, align = c("l","c","c","c","c","c","c"))
+knitr::kable(tabla_endogena_3, align = c("l","c","c","c","c","c","c"), caption = "Insatisfactorio")
 
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=INSATISFACTORIO, y=PROMEDIO_DIAS_LM, 
                                          fill = INSATISFACTORIO))+
   geom_boxplot() +
   labs(
-    title="Distribución de los días promedio según la Tramo Docente",
+    title="Distribución de los días promedio según variable Insatisfactorio",
     caption = "Elab. propia: BBDD Lic. Médicas 2022",
     subtitle = "Cantidad de Docentes = 500",
     y="Cantidad de Días promedios",
-    x="Tramo Docente"
+    x="Insatisfactorio"
   )+
   theme_minimal()+
   theme(legend.position="none")
@@ -361,7 +361,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=INSATISFACTORIO, y=PROMEDIO_DIAS_LM,
 
 En esta presente sección, se analizaran las variables que son ajenas a las capacidades evaluativas propias del docentes dado el número promedio de días por licencia médica emitida, las cuales son:
 
-```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE,out.width="70%"}
 
 # Análisis descriptivo de las variables exógenas.
 
@@ -369,97 +369,179 @@ En esta presente sección, se analizaran las variables que son ajenas a las capa
 tabla_exogena_1<- BBDD_proyecto_sin_ceros %>% 
   group_by(SEXO) %>% 
   summarise(n = n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=PROMEDIO_DIAS_LM, fill = SEXO)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Sexo",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Sexo"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
 
 # ESTADO CIVIL
 
 tabla_exogena_2<- BBDD_proyecto_sin_ceros %>% 
   group_by(ESTADO_CIVIL) %>% 
   summarise(n = n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL, y=PROMEDIO_DIAS_LM, fill = ESTADO_CIVIL)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Estado Civil",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Estado Civil"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
+
 
 #SISTEMA DE SALUD
 
 tabla_exogena_3<- BBDD_proyecto_sin_ceros %>% 
   group_by(SISTEMA_SALUD) %>% 
   summarise(n = n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SISTEMA_SALUD, y=PROMEDIO_DIAS_LM, fill = SISTEMA_SALUD)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Sistema de Salud",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Sistema de Salud"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
 
 #NIVEL
 
 tabla_exogena_4<- BBDD_proyecto_sin_ceros %>% 
   group_by(NIVEL) %>% 
   summarise(n = n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=NIVEL, y=PROMEDIO_DIAS_LM, fill = NIVEL)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Nivel",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Nivel"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
 
 #TIPO DE ESTABLECIMIENTO
 
 tabla_exogena_5<- BBDD_proyecto_sin_ceros %>% 
   group_by(TIPO_ESTABLECIMIENTO) %>% 
   summarise(n= n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TIPO_ESTABLECIMIENTO, y=PROMEDIO_DIAS_LM, fill = TIPO_ESTABLECIMIENTO)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio Tipo Establecimiento",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Tipo Establecimiento"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
 
 # CALIDAD DE DESEMPEÑO
 
 tabla_exogena_6<- BBDD_proyecto_sin_ceros %>% 
   group_by(CALIDAD_DESEMPEÑO) %>% 
   summarise(n = n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
-# CALIDAD DE DESEMPEÑO
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=CALIDAD_DESEMPEÑO, y=PROMEDIO_DIAS_LM, fill = CALIDAD_DESEMPEÑO)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio Calidad de Desempeño",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Calidad de Desempeño"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
+
+# TRASLADO DE COMUNA
 
 tabla_exogena_7<- BBDD_proyecto_sin_ceros %>% 
   group_by(TRASLADO_COMUNA) %>% 
   summarise(n = n(),
-            promedio = mean(PROMEDIO_DIAS_LM),
+            Promedio = mean(PROMEDIO_DIAS_LM),
             Mediana = median(PROMEDIO_DIAS_LM),
             DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Min = min(PROMEDIO_DIAS_LM),
-            Max = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
 
 
-knitr::kable(tabla_exogena_1, align = c("l","c","c","c","c","c","c","c"))
-knitr::kable(tabla_exogena_2, align = c("l","c","c","c","c","c","c","c"))
-knitr::kable(tabla_exogena_3, align = c("l","c","c","c","c","c","c","c"))
-knitr::kable(tabla_exogena_4, align = c("l","c","c","c","c","c","c","c"))
-knitr::kable(tabla_exogena_5, align = c("l","c","c","c","c","c","c","c"))
-knitr::kable(tabla_exogena_6, align = c("l","c","c","c","c","c","c","c"))
-knitr::kable(tabla_exogena_7, align = c("l","c","c","c","c","c","c","c"))
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRASLADO_COMUNA, y=PROMEDIO_DIAS_LM, fill = TRASLADO_COMUNA)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio por Traslado de Comuna",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Traslado de Comuna"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
 
+
+knitr::kable(tabla_exogena_1, align = c("l","r","r","r","r","r","r","r"), caption = "Sexo")
+
+knitr::kable(tabla_exogena_2, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Estado Civil")
+knitr::kable(tabla_exogena_3, align = c("l","r","r","r","r","r","r","r"),
+             caption="Sistema de Salud")
+knitr::kable(tabla_exogena_4, align = c("l","r","r","r","r","r","r","r"),
+             caption ="Nivel")
+knitr::kable(tabla_exogena_5, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Tipo Establecimiento" )
+knitr::kable(tabla_exogena_6, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Calidad Desempeño")
+knitr::kable(tabla_exogena_7, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Traslado Comuna")
 ```
 
 
@@ -1006,4 +1088,135 @@ summary(modelo0)
 |EDAD|0.06085|0.02425|2.509|0.01233|
 
 
-### Backward
+
+# Categoriza la edad 
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+BBDD_proyecto_sin_ceros<-mutate(BBDD_proyecto_sin_ceros, TRAMO_EDAD = cut(BBDD_proyecto_sin_ceros$EDAD, breaks = 2, right = FALSE))
+```
+
+# Metodología Forward
+##############################################
+
+# Primera variable que entra al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ 1)
+add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+       TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
+```
+
+# Segunda variable que entra al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO)
+
+add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+       TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
+```
+
+# Tercera variable que entra al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO)
+add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+       TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
+```
+
+# Cuarta variable que entra al modelo
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD)
+add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+       TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
+```
+# Finalmente
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD + NIVEL)
+add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+       TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
+```
+
+# Modelo resultante por forward
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+modelo_forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD + NIVEL)
+summary(modelo_forward)
+```
+# Metodología Backward
+
+# Primera variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL +
+               TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA)
+drop1(backward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+
+# Segunda variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Tercera variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Cuarta variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Quinta variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Sexta variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA - ESTADO_CIVIL, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Septima variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA - ESTADO_CIVIL - TIPO_ESTABLECIMIENTO, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Octava variable que sale al modelo
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA - ESTADO_CIVIL - TIPO_ESTABLECIMIENTO - TRAMO_DOCENTE, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
+```
+
+# Modelo resultante por backward
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+modelo_backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + INSATISFACTORIO)
+summary(modelo_backward)
+```
+
+
+# Anexos 
+
+## Anexo Tablas
+
+## Anexo Gráficos
