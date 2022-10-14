@@ -34,7 +34,8 @@ Se desea identificar los fenómenos que estén, de alguna manera, relacionada co
 
 ###  Estado del Arte
 
-En la actualidad, la problemática descrita anteriormente se ve reflejada tanto en la comunidad docente (ver [enlace](https://www.colegiodeprofesores.cl/2022/06/08/reemplazos-de-docentes-por-licencias-medicas-orientaciones-al-respecto/) ) como en la ciudadania (ver [enlace](https://www.theclinic.cl/2022/09/14/la-pesadilla-que-atrapa-a-los-profesores/)) 
+En la actualidad, la problemática descrita anteriormente se ve reflejada tanto en la comunidad docente (ver [enlace](https://www.colegiodeprofesores.cl/2022/06/08/reemplazos-de-docentes-por-licencias-medicas-orientaciones-al-respecto/) ) como en la ciudadania (ver [enlace](https://www.theclinic.cl/2022/09/14/la-pesadilla-que-atrapa-a-los-profesores/)) y (ver [enlace](https://www.soychile.cl/antofagasta/sociedad/2022/06/26/763718/licencias-medicas-deficit-profesionales-educacion.html)) 
+
 
 ### Objetivos 
 
@@ -136,24 +137,29 @@ p1 <- ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
   geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
              color = "blue", linetype = "dashed", size = 1)+
   theme_minimal()+
+  ggtitle("Distribución de \n Licencias Médicas") +
+  ggeasy::easy_center_title()+
   labs(
     title="Distribución de Licencias Médicas",
     # subtitle = "Cantidad de DOCENTES: 500",
     y="Densidad",
     x="Días Promedios",
     caption = "Elab. propia: BBDD - lic. med. 2022"
-  )
+  )+
+  theme(plot.title = element_text(size = rel(1)))
+
 
 
 p2<-ggplot(BBDD_proyecto_sin_ceros, aes(y = PROMEDIO_DIAS_LM)) +
   geom_boxplot(fill = "#FF6666" )+
+  ggtitle("Box-plot del promedio de \n días por lic. Médicas") +
+  ggeasy::easy_center_title()+
+  
   labs(
-    title = "Box-plot del promedio de días por lic. Médicas",
-    # subtitle = "Cantidad de DOCENTES: 500",
     y = "Cantidad promedio de días",
     caption = "Elab. propia: BBDD - lic. med. 2022"
   )+
-  theme()+
+  theme(plot.title = element_text(size = rel(1)))+
   theme_minimal()
 
 
@@ -262,6 +268,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE, y=PROMEDIO_DIAS_L
     x="Evaluación Docente"
   )+
   theme_minimal()+
+  
   theme(legend.position="none")
 ```
 
@@ -293,11 +300,14 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE, y=PROMEDIO_DIAS_LM,
   labs(
     title="Distribución de los días promedio según la Tramo Docente",
     caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    subtitle = "Cantidad de Docentes = 500",
     y="Cantidad de Días promedios",
     x="Tramo Docente"
   )+
   theme_minimal()+
+  theme(text = element_text(size=7))+
+   theme(axis.title.x = element_text(vjust=-0.5, size=rel(1.5))) +
+    theme(axis.title.y = element_text(vjust=1.5, size=rel(1.5))) +
+  theme(plot.title = element_text(size = rel(2)))+
   theme(legend.position="none")
 ```
 
