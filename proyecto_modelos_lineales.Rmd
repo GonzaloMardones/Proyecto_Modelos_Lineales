@@ -369,6 +369,33 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=INSATISFACTORIO, y=PROMEDIO_DIAS_LM,
 
 ```
 
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
+BBDD_proyecto_sin_ceros<-mutate(BBDD_proyecto_sin_ceros, TRAMO_EDAD = ifelse(EDAD<=48,1,ifelse(EDAD<=57,2,3)))
+BBDD_proyecto_sin_ceros$TRAMO_EDAD<-factor(BBDD_proyecto_sin_ceros$TRAMO_EDAD,
+                                           level = c(1,2,3), labels = c("Docente Joven",                                                        "Docente Adulto",                                                                        "Docente Adulto Mayor"))
+#table(BBDD_proyecto_sin_ceros$TRAMO_EDAD)
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
+       geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+       geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+       scale_x_continuous(breaks = seq(20,80,by=2))+
+       labs(
+         title="Distribución de la variable Edad",
+         y="Densidad",
+         x="Edad",
+       )+
+       theme_minimal()
+
+table(BBDD_proyecto_sin_ceros$TRAMO_EDAD)
+```
+
+
+Al observar la distribución de la edad, esta sugiere la presencia de una distribución mixta al presentarse tres cimas en la densidad, una alrededor de los 34 años, otra alrededor de los 52 años y otra levemente notoria alrededor de los 64 años lo que puede ser evidencia de la mezcla de tres distribuciones. Existen gráficamente dos puntos de inflexión, uno cercano a los 48 años, y otro cercano a los 57 años. Esto tiene sentido de acuerdo a los tramos de edad expuestos por Activa Research junto a WIN (Worldwide Independent Network of Market Research) en un estudio de la sensación de adultez y vejez (https://www.latercera.com/que-pasa/noticia/chilenos-juventud/677561/).
+
+Dadas esta premisa, se intenta obtener una variable tipo factor que indique el tramo de edad de acuerdo a cortes según los puntos de inflexión encontrados de manera descriptiva para poder analizar la relación de este factor con el número promedio de días de licencias médicas de los docentes del estudio.
+
+Así logramos obtener tres niveles dentro del factor tramo de edad: Docente Joven, Docente Adulto y Docente adulto mayor, donde cada grupo representa un 65.6%, 17.6% y 16.8% de los casos totales.
+
 
 **b.-** **Variables Exógenas**  (indicadores ajenas al docentes)
 
@@ -611,8 +638,6 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=JORNADA))+
 Podemos notar que prácticamente el 75% de los las personas de la muestra trabajan jornadas de 44 o menos horas semanales, mientras que sólo un caso muestra 88 horas laborales semanales, este caso se debe a ..... (justificar el caso) 
 
 
-
-
 ```{r, message=FALSE, warning=FALSE,out.width="80%", out.height="100%", echo = FALSE, fig.align="center"}
 # Estado Civil
 color_fill_bar_ <- "steelblue"
@@ -838,75 +863,7 @@ Respecto a la distribución del número de días con licencia de acuerdo al tras
 
 ## Selección Formal de Modelo
 
-### Forward
-
-Para la selección del modelo forward se utilizo una significancia del 5% en cada uno de los test de hipótesis realizados
-
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%"}
-modelo0 = lm(PROMEDIO_DIAS_LM ~ 1, data = BBDD_proyecto_sin_ceros)
-add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
-       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
-       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
-     test="F") 
-```
-
-Para decidir la entrada del segundo predictor, se debe evaluar todos los modelos que ya contienen al promedio de días de licencias medicas, a lo que se agrega cada uno de los predictores restantes por separado.
-
-De acuerdo al caso anterior, el menor valor-p corresponde al modelo PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE
-
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%", echo = FALSE, include =FALSE}
-
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE, data = BBDD_proyecto_sin_ceros)
-add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
-       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
-       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
-     test="F") 
-
-
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO, 
-             data = BBDD_proyecto_sin_ceros)
-add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
-       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
-       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
-     test="F") 
-
-
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL, 
-             data = BBDD_proyecto_sin_ceros)
-add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
-       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
-       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
-     test="F") 
-
-
-modelo0 = lm(PROMEDIO_DIAS_LM ~ EVALUACION_DOCENTE + CALIDAD_DESEMPEÑO +NIVEL + EDAD, 
-             data = BBDD_proyecto_sin_ceros)
-add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
-       SISTEMA_SALUD + JORNADA + NIVEL + CALIDAD_DESEMPEÑO +
-       ESTAMENTO + EVALUACION_DOCENTE + TRAMO_DOCENTE + TRASLADO_COMUNA,
-     test="F") 
-     
-summary(modelo0)
-```
-
-
-
-
-
-|Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
-|:---------|:---------:| :---------:|:---------:|:---------:|
-|Intercepto | 7.59163 | 1.49024 |5.094|4.6e-07 |
-|EVALUACION_DOCENTEDESTACADO|-2.69256|1.55890|-1.727|0.08460 |
-|EVALUACION_DOCENTEBASICO|-2.08287 |1.13656|-1.833|0.06732 |
-|EVALUACION_DOCENTEINSATISFACTORIO|7.87294 |1.52249|5.171|3.1e-07|
-|EVALUACION_DOCENTECOMPETENTE|-1.91725 |1.12365|-1.706|0.08844|
-|CALIDAD_DESEMPEÑOTITULAR|2.65846|0.72190|3.683|0.00025 |
-|NIVELMEDIA|-1.84583|0.63467|-2.908|0.00376 |
-|EDAD|0.06085|0.02425|2.509|0.01233|
-
-
-
-# Categoriza la edad 
+<!-- # Categoriza la edad  -->
 ```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
 BBDD_proyecto_sin_ceros<-mutate(BBDD_proyecto_sin_ceros, TRAMO_EDAD = cut(BBDD_proyecto_sin_ceros$EDAD, breaks = 2, right = FALSE))
 ```
@@ -914,53 +871,45 @@ BBDD_proyecto_sin_ceros<-mutate(BBDD_proyecto_sin_ceros, TRAMO_EDAD = cut(BBDD_p
 # Metodología Forward
 ##############################################
 
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE, include =FALSE}
+
 # Primera variable que entra al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
 forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ 1)
 add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
-```
 
 # Segunda variable que entra al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
 forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO)
-
 add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
-```
 
 # Tercera variable que entra al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO)
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + TRAMO_EDAD)
 add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
-```
 
 # Cuarta variable que entra al modelo
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD)
+
+forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + TRAMO_EDAD + CALIDAD_DESEMPEÑO)
 add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
-```
+
 # Finalmente
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
 forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD + NIVEL)
 add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros, test="F")
+
+# Modelo Resultado
+
+modelo_forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + TRAMO_EDAD + CALIDAD_DESEMPEÑO + NIVEL)
+summary(modelo_forward)
 ```
 
-# Modelo resultante por forward
-
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-modelo_forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD + NIVEL)
-# summary(modelo_forward)
-```
-
-Para decidir la entrada del segundo predictor se debe evaluar todos los modelos que contienen cuya variable respuesta es PROMEDIO_DIAS_LM agregando cada uno de los predictores por separado, para lo cual es necesario desarrollar un test F por predictor
+Para decidir la entrada del segundo predictor se debe evaluar todos los modelos que contienen cuya variable respuesta es PROMEDIO_DIAS_LM agregando cada uno de los predictores por separado, para lo cual es necesario desarrollar un test F por predictor. A continuación se presenta el modelo base y en las próximas etapas la construcción del modelo junto al resultado por medio de la metodología forward
 
 | Modelo | p-valor|
 |:---------|:---------:|
@@ -977,94 +926,135 @@ Para decidir la entrada del segundo predictor se debe evaluar todos los modelos 
 |PROMEDIO_DIAS_LM ~ TRASLADO_COMUNA | 0.712619 |
 
 
-###  Primera Variable que ingresa al modelo
+### Variable INSATISFACTORIO ingresa al modelo
 
+`PROMEDIO_DIAS_LM ~ INSATISFACTORIO` ,  valor-p: $6.265e-12$
+
+### Variable TRAMO_EDAD ingresa al modelo
+
+`PROMEDIO_DIAS_LM ~ INSATISFACTORIO + TRAMO_EDAD` ,  valor-p: $0.0012567$
+
+### Variable CALIDAD_DESEMPEÑO ingresa al modelo
+
+`PROMEDIO_DIAS_LM ~ INSATISFACTORIO + TRAMO_EDAD + CALIDAD_DESEMPEÑO` ,  valor-p: $0.0004195$
+
+
+### Variable NIVEL ingresa al modelo
+
+`PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD + NIVEL` ,  valor-p: $0.04542$
+
+
+### Modelo Resultado 
 
 |Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
 |:---------|:---------:| :---------:|:---------:|:---------:|
 |Intercepto | 7.9831 | 0.7314 |10.915| < 2e-16 |
 |INSATISFACTORIOInsatisfactorio | 9.9027| 1.3399| 7.390| 6.28e-13 |
+|TRAMO_EDAD [50.5,79.1) | 1.7839| 0.7080| 2.520| 0.01207 |
 |CALIDAD_DESEMPEÑOTITULAR | 2.1505| 0.7967| 2.699| 0.00718 |
-|TRAMO_EDAD[50.5,79.1) | 1.7839| 0.7080| 2.520| 0.01207 |
 |NIVELMEDIA | -1.4459| 0.7208| -2.006| 0.04542 |
 
 
 # Metodología Backward
 
-# Primera variable que sale al modelo
+Para decidir la salida del segundo predictor, se debe evaluar todos los modelos que contienen a todas las variables exceptuando a PROMEDIO_DIAS_LM, los demás predictores saldrán en cada iteración. El modelo se compone de la siguiente forma
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
+`PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA`
+
+
+### Variable JORNADA sale del modelo
+
+`PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA` ,  valor-p: $0.73$
+
+
+### Variable TRASLADO_COMUNA sale del modelo
+
+`PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + NIVEL +TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO` ,  valor-p: $0.66$
+
+### Variable RENTA_PROMEDIO sale del modelo
+
+`PROMEDIO_DIAS_LM ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + NIVEL +TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO` ,  valor-p: $0.627$
+
+### Variable SEXO sale del modelo
+
+`PROMEDIO_DIAS_LM ~ ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO` ,  valor-p: $0.42$
+
+### Variable ESTADO_CIVIL sale del modelo
+
+`PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO` ,  valor-p: $0.25$
+
+### Variable TRAMO_DOCENTE sale del modelo
+
+`PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO +    CALIDAD_DESEMPEÑO + INSATISFACTORIO` ,  valor-p: $0.13$
+
+### Variable TIPO_ESTABLECIMIENTO sale del modelo
+
+`PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO +     INSATISFACTORIO` ,  valor-p: $0.15$
+
+
+```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE, include=FALSE}
+# Primera variable que sale al modelo
 backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL +
                TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA)
 drop1(backward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
         TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
-
 
 # Segunda variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO, data=BBDD_proyecto_sin_ceros)
-drop1(backward, ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + JORNADA + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+backward <- update(backward, ~ . - JORNADA, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
         TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
 
 # Tercera variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA, data=BBDD_proyecto_sin_ceros)
-drop1(backward, ~ SEXO + ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
-        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
+backward <- update(backward, ~ . - JORNADA - TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
 
 # Cuarta variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO, data=BBDD_proyecto_sin_ceros)
-drop1(backward, ~ ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
-        TRAMO_DOCENTE + INSATISFACTORIO + TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
+backward <- update(backward, ~ . - JORNADA - TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
+        TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
+
 
 # Quinta variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA, data=BBDD_proyecto_sin_ceros)
+backward <- update(backward, ~ . - JORNADA - TRASLADO_COMUNA - RENTA_PROMEDIO - SEXO, data=BBDD_proyecto_sin_ceros)
 drop1(backward, ~ ESTADO_CIVIL + TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO +
-        TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
+        TRAMO_DOCENTE + INSATISFACTORIO , data=BBDD_proyecto_sin_ceros,  test = 'F')
+
 
 # Sexta variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA - ESTADO_CIVIL, data=BBDD_proyecto_sin_ceros)
+backward <- update(backward, ~ . - - JORNADA - TRASLADO_COMUNA - RENTA_PROMEDIO - SEXO - ESTADO_CIVIL, data=BBDD_proyecto_sin_ceros)
 drop1(backward, ~ TRAMO_EDAD + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
+
 
 # Septima variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA - ESTADO_CIVIL - TIPO_ESTABLECIMIENTO, data=BBDD_proyecto_sin_ceros)
-drop1(backward, ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + TRAMO_DOCENTE + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
+backward <- update(backward, ~ . - JORNADA - TRASLADO_COMUNA - RENTA_PROMEDIO - SEXO - ESTADO_CIVIL - TRAMO_DOCENTE, data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ TRAMO_EDAD + + NIVEL + TIPO_ESTABLECIMIENTO + CALIDAD_DESEMPEÑO + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
 
 # Octava variable que sale al modelo
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-backward <- update(backward, ~ . - RENTA_PROMEDIO - JORNADA - SEXO - TRASLADO_COMUNA - ESTADO_CIVIL - TIPO_ESTABLECIMIENTO - TRAMO_DOCENTE, data=BBDD_proyecto_sin_ceros)
-drop1(backward, ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
-```
+backward <- update(backward, ~ . - JORNADA - TRASLADO_COMUNA - RENTA_PROMEDIO - SEXO - ESTADO_CIVIL - TRAMO_DOCENTE - TIPO_ESTABLECIMIENTO,
+                   data=BBDD_proyecto_sin_ceros)
+drop1(backward, ~ TRAMO_EDAD + NIVEL+ CALIDAD_DESEMPEÑO + INSATISFACTORIO, data=BBDD_proyecto_sin_ceros,  test = 'F')
 
 # Modelo resultante por backward
 
-```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
-modelo_backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + INSATISFACTORIO)
+modelo_backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL+ CALIDAD_DESEMPEÑO + INSATISFACTORIO)
+summary(modelo_backward)
 # summary(modelo_backward)
 ```
+
+### Modelo Resultado 
 
 |Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
 |:---------|:---------:| :---------:|:---------:|:---------:|
 |Intercepto | 7.9831 | 0.7314 |10.915| < 2e-16 |
-|TRAMO_EDAD[50.5,79.1) | 1.7839| 0.7080| 2.520| 0.01207 |
+|TRAMO_EDAD [50.5,79.1) | 1.7839| 0.7080| 2.520| 0.01207 |
 |NIVELMEDIA | -1.4459| 0.7208| -2.006| 0.04542 |
 |CALIDAD_DESEMPEÑOTITULAR | 2.1505| 0.7967| 2.699| 0.00718 |
 |INSATISFACTORIOInsatisfactorio | 9.9027| 1.3399| 7.390| 6.28e-13 |
