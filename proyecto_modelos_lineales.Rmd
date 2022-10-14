@@ -667,7 +667,7 @@ p3<- ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, EDAD)) +
   ylab("Edad")+
   scale_y_continuous(labels = comma)+
   labs(title = "Distribución Renta Promedio",
-       subtitle = "Boxplot por sexo",
+       # subtitle = "Boxplot por sexo",
        caption = "Elaboración Propia")  +
   labs(fill = "Sexo") +  
   theme(
@@ -721,7 +721,7 @@ p2<-
   )+
   theme_minimal()+
   scale_fill_brewer(palette = "Set2")+
-  geom_jitter(color="black", size=0.3, alpha=0.9)
+  # geom_jitter(color="black", size=0.3, alpha=0.9)
 
 
 p1 + p2
@@ -761,8 +761,8 @@ ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, RENTA_PROMEDIO)) +
     legend.position = "none"
   )+
   theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  geom_jitter(color="black", size=0.3, alpha=0.9)
+  scale_fill_brewer(palette = "Set2")
+  # geom_jitter(color="black", size=0.3, alpha=0.9)
 ```
 
 Comparando los niveles de renta por sexo se puede notar una cierta similitud en el rango de montos promedio, más aún, las estadísticas de posición (cuartiles) son bastante similares, por lo que podría no haber un efecto del sexo sobre los ingresos promedio. Para las mujeres la mediana de las rentas promedio es 1.58 millones, mientras que para los hombre bordea los 1.62 millones de pesos.
@@ -850,29 +850,12 @@ ggplot(BBDD_proyecto_sin_ceros, aes(EVALUACION_DOCENTE, PROMEDIO_DIAS_LM)) +
   labs(fill = "Evaluación Docente") +  
   theme_minimal() + 
   theme(legend.position="none")+
-
-  scale_fill_brewer(palette = "Set2")+
-  geom_jitter(color="black", size=0.3, alpha=0.9)
+  scale_fill_brewer(palette = "Set2")
+  # geom_jitter(color="black", size=0.3, alpha=0.9)
 
 ```
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE, fig.align="center"}
-# Tramo Docente
-
-# ggplot(BBDD_proyecto_sin_ceros, aes(TRAMO_DOCENTE, PROMEDIO_DIAS_LM)) +
-#   geom_boxplot(aes(fill=TRAMO_DOCENTE))+
-#   xlab("Evaluación Docente")+
-#   ylab("Promedio Días LM")+
-#   labs(title = "Distribución de Evaluación Docente",
-#        # subtitle = "Boxplot por EVALUACION_DOCENTE",
-#        caption = "Elaboración Propia")  +
-#   labs(fill = "Evaluación Docente") +  
-#   theme_minimal() + 
-#   theme(legend.position="none")+
-# 
-#   scale_fill_brewer(palette = "Set2")+
-#   geom_jitter(color="black", size=0.3, alpha=0.9)
-
 
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
   geom_bar()+
