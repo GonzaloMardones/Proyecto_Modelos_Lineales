@@ -409,195 +409,6 @@ En este apartado, se analizarán las variables que son ajenas a las capacidades 
 [^9]: Ver Tabla 11 en apartado Anexo Tablas, junto al gráfico 7 en el apartado Anexo Gráficos.
 
 
-```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE,out.width="70%"}
-
-# Análisis descriptivo de las variables exógenas.
-
-# SEXO
-tabla_exogena_1<- BBDD_proyecto_sin_ceros %>% 
-  group_by(SEXO) %>% 
-  summarise(n = n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=PROMEDIO_DIAS_LM, fill = SEXO)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio según Sexo",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
-    x="Sexo"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  theme(legend.position="none")
-
-# ESTADO CIVIL
-
-tabla_exogena_2<- BBDD_proyecto_sin_ceros %>% 
-  group_by(ESTADO_CIVIL) %>% 
-  summarise(n = n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL, y=PROMEDIO_DIAS_LM, fill = ESTADO_CIVIL)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio según Estado Civil",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
-    x="Estado Civil"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  theme(legend.position="none")
-
-
-#SISTEMA DE SALUD
-
-tabla_exogena_3<- BBDD_proyecto_sin_ceros %>% 
-  group_by(SISTEMA_SALUD) %>% 
-  summarise(n = n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SISTEMA_SALUD, y=PROMEDIO_DIAS_LM, fill = SISTEMA_SALUD)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio según Sistema de Salud",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
-    x="Sistema de Salud"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  theme(legend.position="none")
-
-#NIVEL
-
-tabla_exogena_4<- BBDD_proyecto_sin_ceros %>% 
-  group_by(NIVEL) %>% 
-  summarise(n = n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=NIVEL, y=PROMEDIO_DIAS_LM, fill = NIVEL)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio según Nivel",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
-    x="Nivel"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  theme(legend.position="none")
-
-#TIPO DE ESTABLECIMIENTO
-
-tabla_exogena_5<- BBDD_proyecto_sin_ceros %>% 
-  group_by(TIPO_ESTABLECIMIENTO) %>% 
-  summarise(n= n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TIPO_ESTABLECIMIENTO, y=PROMEDIO_DIAS_LM, fill = TIPO_ESTABLECIMIENTO)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio Tipo Establecimiento",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días Promedios",
-    x="Tipo Establecimiento"
-  )+
-  theme_minimal()+
-  theme(legend.position="none")+
-  scale_fill_brewer(palette = "Set2")
-
-# CALIDAD DE DESEMPEÑO
-
-tabla_exogena_6<- BBDD_proyecto_sin_ceros %>% 
-  group_by(CALIDAD_DESEMPEÑO) %>% 
-  summarise(n = n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=CALIDAD_DESEMPEÑO, y=PROMEDIO_DIAS_LM, fill = CALIDAD_DESEMPEÑO)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio Calidad de Desempeño",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
-    x="Calidad de Desempeño"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  theme(legend.position="none")
-
-# TRASLADO DE COMUNA
-
-tabla_exogena_7<- BBDD_proyecto_sin_ceros %>% 
-  group_by(TRASLADO_COMUNA) %>% 
-  summarise(n = n(),
-            Promedio = mean(PROMEDIO_DIAS_LM),
-            Mediana = median(PROMEDIO_DIAS_LM),
-            DesvEstandar = sd(PROMEDIO_DIAS_LM),
-            Mín = min(PROMEDIO_DIAS_LM),
-            Máx = max(PROMEDIO_DIAS_LM),
-            Cantidad_LM = sum(CANTIDAD_LM))
-
-
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRASLADO_COMUNA, y=PROMEDIO_DIAS_LM, fill = TRASLADO_COMUNA)) +
-  geom_boxplot() +
-  labs(
-    title="Distribución de los días promedio por Traslado de Comuna",
-    caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
-    x="Traslado de Comuna"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  theme(legend.position="none")
-
-
-knitr::kable(tabla_exogena_1, align = c("l","r","r","r","r","r","r","r"), caption = "Sexo")
-
-knitr::kable(tabla_exogena_2, align = c("l","r","r","r","r","r","r","r"),
-             caption = "Estado Civil")
-knitr::kable(tabla_exogena_3, align = c("l","r","r","r","r","r","r","r"),
-             caption="Sistema de Salud")
-knitr::kable(tabla_exogena_4, align = c("l","r","r","r","r","r","r","r"),
-             caption ="Nivel")
-knitr::kable(tabla_exogena_5, align = c("l","r","r","r","r","r","r","r"),
-             caption = "Tipo Establecimiento" )
-knitr::kable(tabla_exogena_6, align = c("l","r","r","r","r","r","r","r"),
-             caption = "Calidad Desempeño")
-knitr::kable(tabla_exogena_7, align = c("l","r","r","r","r","r","r","r"),
-             caption = "Traslado Comuna")
-```
 
 
 
@@ -617,74 +428,6 @@ knitr::kable(tabla_exogena_7, align = c("l","r","r","r","r","r","r","r"),
 
 ### Distribución de Licencias Médicas
 
-
-
-
-```{r fig.align="center", warning=FALSE, message=FALSE, echo=FALSE,out.width="80%", out.height="100%", include=FALSE}
-p1<- ggplot(BBDD_proyecto, aes(x = PROMEDIO_DIAS_LM)) +
-  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
-  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
-  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
-             color = "blue", linetype = "dashed", size = 1)+
-  theme_minimal()+
-  labs(
-  title="Distribución de Licencias Médicas",
-  subtitle = "Considerando día cero",
-  y="Densidad",
-  x="Días Promedios",
-   caption = "Elaboración Propia"
-  )
-  
-
-p2<- ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
-  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
-  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
-  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
-             color = "blue", linetype = "dashed", size = 1)+
-  theme_minimal()+
-  labs(
-  title="Distribución de Licencias Médicas",
-  subtitle = "Descartando día cero",
-  y="Densidad",
-  x="Días Promedios",
-  caption = "Elaboración Propia"
-  )
-
-cowplot::plot_grid(p1,p2)
-
-```
-
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="100%", echo=FALSE}
-# Variable Sexo
-p1<- ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
-  geom_bar(color = color_contours_bar, fill = color_fill_bar)+
-  scale_y_continuous(limits = c(0,500))+
-  geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 2, color="white")+
-  labs(
-    title="Distribución de la variable Sexo",
-    y="Frecuencia",
-    x="Sexo",
-    caption = "Elab. Propia: Fem (74.4%), Masc (25.6%)"
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")
-
-p2 <-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
-  
-  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
-  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
-  labs(
-    title="Distribución de la variable Edad",
-    y="Densidad",
-    x="Edad",
-
-  )+
-  theme_minimal()+
-  scale_fill_brewer(palette = "Set2")
-
-cowplot::plot_grid(p1,p2)
-
-```
 
 De acuerdo a los resultados, la variable edad parece tener una distribución bimodal, de hecho, nos da luces de uan cierta mezcla de distribuciones, por lo cual se hace necesario el poder analizar esta variable de acuerdo a variables categóricas como es el sexo.
 
@@ -1326,8 +1069,227 @@ modelo_backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ TRAMO_EDAD 
 |CALIDAD_DESEMPEÑOTITULAR | 2.1505| 0.7967| 2.699| 0.00718 |
 |INSATISFACTORIOInsatisfactorio | 9.9027| 1.3399| 7.390| 6.28e-13 |
 
+\newpage
+
 # Anexos 
 
 ## Anexo Tablas
 
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE,out.width="70%"}
+
+# Análisis descriptivo de las variables exógenas.
+
+# SEXO
+tabla_exogena_1<- BBDD_proyecto_sin_ceros %>% 
+  group_by(SEXO) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+
+# ESTADO CIVIL
+
+tabla_exogena_2<- BBDD_proyecto_sin_ceros %>% 
+  group_by(ESTADO_CIVIL) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+#SISTEMA DE SALUD
+
+tabla_exogena_3<- BBDD_proyecto_sin_ceros %>% 
+  group_by(SISTEMA_SALUD) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+#NIVEL
+
+tabla_exogena_4<- BBDD_proyecto_sin_ceros %>% 
+  group_by(NIVEL) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+#TIPO DE ESTABLECIMIENTO
+
+tabla_exogena_5<- BBDD_proyecto_sin_ceros %>% 
+  group_by(TIPO_ESTABLECIMIENTO) %>% 
+  summarise(n= n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+
+# CALIDAD DE DESEMPEÑO
+
+tabla_exogena_6<- BBDD_proyecto_sin_ceros %>% 
+  group_by(CALIDAD_DESEMPEÑO) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+# TRASLADO DE COMUNA
+
+tabla_exogena_7<- BBDD_proyecto_sin_ceros %>% 
+  group_by(TRASLADO_COMUNA) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+knitr::kable(tabla_exogena_1, align = c("l","r","r","r","r","r","r","r"), caption = "Sexo")
+
+knitr::kable(tabla_exogena_2, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Estado Civil")
+knitr::kable(tabla_exogena_3, align = c("l","r","r","r","r","r","r","r"),
+             caption="Sistema de Salud")
+knitr::kable(tabla_exogena_4, align = c("l","r","r","r","r","r","r","r"),
+             caption ="Nivel")
+knitr::kable(tabla_exogena_5, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Tipo Establecimiento" )
+knitr::kable(tabla_exogena_6, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Calidad Desempeño")
+knitr::kable(tabla_exogena_7, align = c("l","r","r","r","r","r","r","r"),
+             caption = "Traslado Comuna")
+```
+
+\newpage
 ## Anexo Gráficos
+
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE,out.width="70%"}
+
+# SEXO
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=PROMEDIO_DIAS_LM, fill = SEXO)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Sexo",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Sexo"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
+
+# ESTADO CIVIL
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL, y=PROMEDIO_DIAS_LM, fill = ESTADO_CIVIL)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Estado Civil",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Estado Civil"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
+
+
+#SISTEMA DE SALUD
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SISTEMA_SALUD, y=PROMEDIO_DIAS_LM, fill = SISTEMA_SALUD)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Sistema de Salud",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Sistema de Salud"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
+
+#NIVEL
+
+tabla_exogena_4<- BBDD_proyecto_sin_ceros %>% 
+  group_by(NIVEL) %>% 
+  summarise(n = n(),
+            Promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Mín = min(PROMEDIO_DIAS_LM),
+            Máx = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM = sum(CANTIDAD_LM))
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=NIVEL, y=PROMEDIO_DIAS_LM, fill = NIVEL)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según Nivel",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Nivel"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
+
+#TIPO DE ESTABLECIMIENTO
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TIPO_ESTABLECIMIENTO, y=PROMEDIO_DIAS_LM, fill = TIPO_ESTABLECIMIENTO)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio Tipo Establecimiento",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días Promedios",
+    x="Tipo Establecimiento"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
+
+# CALIDAD DE DESEMPEÑO
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=CALIDAD_DESEMPEÑO, y=PROMEDIO_DIAS_LM, fill = CALIDAD_DESEMPEÑO)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio Calidad de Desempeño",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Calidad de Desempeño"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
+
+# TRASLADO DE COMUNA
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRASLADO_COMUNA, y=PROMEDIO_DIAS_LM, fill = TRASLADO_COMUNA)) +
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio por Traslado de Comuna",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Traslado de Comuna"
+  )+
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
+
+
+```
