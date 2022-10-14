@@ -261,8 +261,10 @@ tabla_endogena_1 <- BBDD_proyecto_sin_ceros %>%
             Máx = max(PROMEDIO_DIAS_LM),
             Cantidad_LM = sum(CANTIDAD_LM))
 
-knitr::kable(tabla_endogena_1, align = c("l","c","c","c","c","c","c"), caption = "Evaluación Docente")
-
+# install.packages("kableExtra")
+# library(kableExtra)
+ knitr::kable(tabla_endogena_1, align = c("l","c","c","c","c","c","c"), caption = "Evaluación Docente")  
+ # %>% kable_styling(fixed_thead = T)
 
 
 
@@ -370,7 +372,42 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=INSATISFACTORIO, y=PROMEDIO_DIAS_LM,
 
 **b.-** **Variables Exógenas**  (indicadores ajenas al docentes)
 
-En esta presente sección, se analizaran las variables que son ajenas a las capacidades evaluativas propias del docentes dado el número promedio de días por licencia médica emitida, las cuales son:
+
+En este apartado, se analizarán las variables que son ajenas a las capacidades evaluativas propias del docentes, dado el número promedio de días por licencia médica emitida, las cuales son: SEXO, EDAD, JORNADA, RENTA SALARIAL, ESTADO_CIVIL, SISTEMA_SALUD, NIVEL, TIPO_ESTABLECIMIENTO, CALIDAD_DESEMPEÑO, COMUNA_ESTABLECIMIENTO, ESTAMENTO y TRASLADO_COMUNA.
+
+
+- La variable SEXO [^3] donde el 74.4% equivale a las mujeres y el 25.6% a Hombres, sus indicadores como el promedio y las medianas son similares en torno al 10 y 7 días promedios en licencias médicas respectivamente, además sus varianzas también lo son, lo que da indicios de que posiblemente tengan distribuciones similares y que el efecto respecto a los días promedios de licencias médicas registradas según sexo, a nivel descriptivo, no tenga mayor relevancia dentro de un analisis.
+
+[^3]: Ver Tabla 5 en apartado Anexo Tablas, junto al gráfico 1 en el apartado Anexo Gráficos.  
+
+- El ESTADO CIVIL [^4] del funcionario(a), presenta diferencias solo con una categoría que es DIVORCIADO(A) con respecto a las demás, presentando un promedio y mediana en torno a 19 y 20 días promedio de licencias médicas respectivamente, en comparación a las otras situaciones que fluctuan en el promedio, entre 9 y 12 días, y 7 días en mediana. En el caso de las desviaciones estandar, se aprecia que la mayor variabilidad también es asociada a la categoría DIVORCIADO(A), por lo que puede ser un indicio de que esta situación en particular tenga una relevancia en el estudio. Sin embargo, se esta hablando de una cantidad minima de 4 funcionarios, que equivale a un 0.8% de la muestra, lo que tiende a minimizar el efecto de la hipótesis recién mencionada.
+
+[^4]: Ver Tabla 6 en apartado Anexo Tablas, junto al gráfico 2 en el apartado Anexo Gráficos.  
+
+
+- En el SISTEMA DE SALUD [^5], el que indica si pertenece a FONASA o ISAPRE, el 75% pertenece a la primera y el 25% restante a la segúnda mencionada, donde sus promedios y medianas de días sin similares al 10 y 7 días promedio respectivamente y su indicador de variabilidad, que es la desviación estandar, si se diferencian en 2 días promedio siendo superior los afiliados de FONASA. A nivel descriptivo, se podría indicar que se esta en presencia de distribuciones similares y que el impacto dentro de un modelo de regresión lineal posiblemente no sea significativo.
+
+[^5]: Ver Tabla 7 en apartado Anexo Tablas, junto al gráfico 3 en el apartado Anexo Gráficos.
+
+
+- La variable NIVEL [^6], que indica a que nivel el docente le hace clases, 72.4% pertenece al nivel BASICO y el 27.6% al nivel MEDIO,  sus promedios, medianas y desviaciones estandar son similares de un, aproximadamente, 10, 7 y 7 dias promedios de licencias medicas presentadas respectivamente. A nivel descriptivo puede dar indicación de que poseen misma distribución en tornos a las magnitudes ya comentadas, y que no debe generar un cambio significativo muy ampli en torno al efecto de los días promedios de licencias medicas presentado por los funcionarios(as).
+
+[^6]: Ver Tabla 8 en apartado Anexo Tablas, junto al gráfico 4 en el apartado Anexo Gráficos.
+
+- El TIPO DE ESTABLECIMIENTO [^7] indica si el o la docente pertenece o no a un liceo, colegio, escuela diferencial o a la administración central, donde su distribución de cantidades se mueve en torno al 25%, 72.2%, 1.4% y 0.6% respectivamente, donde ya sus diferencias pueden generar algún tipo de problemas a nivel inferencial. Sus promedio, medianas y desviación estandar en días son similares pero sus cantidades generaran incosistencias en la interpretación.
+
+[^7]: Ver Tabla 9 en apartado Anexo Tablas, junto al gráfico 5 en el apartado Anexo Gráficos.
+
+
+- Con respecto a la CALIDAD DE DESEMPEÑO [^7], la cual indica que si un docente tiene un curso de manera titular (profesor jefe) versus si no, en el que se observa que 77.2% de ellos tienen jefatura de curso versus un 22.8% que no tiene jefatura. Donde acá su promedio de dias son 10 y 8 respectiva mente (se genera una diferencia), sus medianas de dias son similares en torno al 6 y 7 días promedio respectivamente al igual que su indicador de la variabilidad.lo que puede incurrir descriptivamente hablando, que si bien tienden a tener misma distribución, lo mas probable es que la diferencia de promedio genere un efecto significativo a la hora de ajustar un modelo.
+
+[^8]: Ver Tabla 10 en apartado Anexo Tablas, junto al gráfico 6 en el apartado Anexo Gráficos.
+
+
+- El TRASLADO DE COMUNA [^9] que indica si el o la funcionario(a) se traslada de una comuna a otra para ir a su lugar de trabajo, el 85.4% de ellos no se traslada en comparación del 14.6% que si, donde poseen un promedio, mediana y desviacion estandar de dias promedios similares entre ellos con magnitudes al rededor de 10, 7 y 7 días premedios de licencias medicas emitidas respectivamente, da la indicios de que poseen misma distribución sin ningún tipo de diferencias que puedan ser significativas entre ellas, lo que implicaria a nivel observacional de que al ajustar un modelo no se generaría un efecto relevante ante esta situación respecto a los días promedios de licencias médicas presentadas.
+
+[^9]: Ver Tabla 11 en apartado Anexo Tablas, junto al gráfico 7 en el apartado Anexo Gráficos.
+
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE,out.width="70%"}
 
@@ -1107,8 +1144,10 @@ add1(modelo0, ~ .  + SEXO + ESTADO_CIVIL + EDAD + RENTA_PROMEDIO +
      test="F") 
      
 summary(modelo0)
-
 ```
+
+
+
 
 
 |Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
@@ -1175,8 +1214,38 @@ add1(forward, ~ SEXO+ ESTADO_CIVIL + TRAMO_EDAD + RENTA_PROMEDIO + JORNADA + NIV
 
 ```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
 modelo_forward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ INSATISFACTORIO + CALIDAD_DESEMPEÑO + TRAMO_EDAD + NIVEL)
-summary(modelo_forward)
+# summary(modelo_forward)
 ```
+
+Para decidir la entrada del segundo predictor se debe evaluar todos los modelos que contienen cuya variable respuesta es PROMEDIO_DIAS_LM agregando cada uno de los predictores por separado, para lo cual es necesario desarrollar un test F por predictor
+
+| Modelo | p-valor|
+|:---------|:---------:|
+|PROMEDIO_DIAS_LM ~ SEXO | 0.787573 |
+|PROMEDIO_DIAS_LM ~ ESTADO_CIVIL | 0.138515 |
+|PROMEDIO_DIAS_LM ~ TRAMO_EDAD | 0.001447 |
+|PROMEDIO_DIAS_LM ~ RENTA_PROMEDIO | 0.505667 |
+|PROMEDIO_DIAS_LM ~ JORNADA | 0.160135 |
+|PROMEDIO_DIAS_LM ~ NIVEL | 0.047016 |
+|PROMEDIO_DIAS_LM ~ TIPO_ESTABLECIMIENTO | 0.197107 |
+|PROMEDIO_DIAS_LM ~ CALIDAD_DESEMPEÑO | 0.007241 |
+|PROMEDIO_DIAS_LM ~ TRAMO_DOCENTE | 0.100351 |
+|PROMEDIO_DIAS_LM ~ INSATISFACTORIO | 6.265e-12 |
+|PROMEDIO_DIAS_LM ~ TRASLADO_COMUNA | 0.712619 |
+
+
+###  Primera Variable que ingresa al modelo
+
+
+|Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
+|:---------|:---------:| :---------:|:---------:|:---------:|
+|Intercepto | 7.9831 | 0.7314 |10.915| < 2e-16 |
+|INSATISFACTORIOInsatisfactorio | 9.9027| 1.3399| 7.390| 6.28e-13 |
+|CALIDAD_DESEMPEÑOTITULAR | 2.1505| 0.7967| 2.699| 0.00718 |
+|TRAMO_EDAD[50.5,79.1) | 1.7839| 0.7080| 2.520| 0.01207 |
+|NIVELMEDIA | -1.4459| 0.7208| -2.006| 0.04542 |
+
+
 # Metodología Backward
 
 # Primera variable que sale al modelo
@@ -1246,9 +1315,16 @@ drop1(backward, ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + INSATISFACTORIO, dat
 
 ```{r, message=FALSE, warning=FALSE,fig.align="center", echo=FALSE}
 modelo_backward<-lm(data=BBDD_proyecto_sin_ceros, PROMEDIO_DIAS_LM ~ TRAMO_EDAD + NIVEL + CALIDAD_DESEMPEÑO + INSATISFACTORIO)
-summary(modelo_backward)
+# summary(modelo_backward)
 ```
 
+|Coeficientes | Estimación | Std. Error | t value | Pr(>t)|
+|:---------|:---------:| :---------:|:---------:|:---------:|
+|Intercepto | 7.9831 | 0.7314 |10.915| < 2e-16 |
+|TRAMO_EDAD[50.5,79.1) | 1.7839| 0.7080| 2.520| 0.01207 |
+|NIVELMEDIA | -1.4459| 0.7208| -2.006| 0.04542 |
+|CALIDAD_DESEMPEÑOTITULAR | 2.1505| 0.7967| 2.699| 0.00718 |
+|INSATISFACTORIOInsatisfactorio | 9.9027| 1.3399| 7.390| 6.28e-13 |
 
 # Anexos 
 
