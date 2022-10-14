@@ -89,6 +89,13 @@ library(patchwork)
 library(hrbrthemes)
 library(viridis)
 
+#General Settings
+color_fill_histogram <- "lightblue"
+color_contours_histogram <-"black"
+
+color_fill_bar <- "steelblue"
+color_contours_bar <- "black"
+
 # Lectura y cambio de estructura de la BBDD
 
 setwd("~/Desktop/MAGISTER/modelos_lineales/")
@@ -160,7 +167,9 @@ p2<-ggplot(BBDD_proyecto_sin_ceros, aes(y = PROMEDIO_DIAS_LM)) +
     caption = "Elab. propia: BBDD - lic. med. 2022"
   )+
   theme(plot.title = element_text(size = rel(1)))+
-  theme_minimal()
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")
+
 
 
 cowplot::plot_grid(p1,p2)
@@ -268,7 +277,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE, y=PROMEDIO_DIAS_L
     x="Evaluación Docente"
   )+
   theme_minimal()+
-  
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 ```
 
@@ -305,9 +314,10 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE, y=PROMEDIO_DIAS_LM,
   )+
   theme_minimal()+
   theme(text = element_text(size=7))+
-   theme(axis.title.x = element_text(vjust=-0.5, size=rel(1.5))) +
-    theme(axis.title.y = element_text(vjust=1.5, size=rel(1.5))) +
+  theme(axis.title.x = element_text(vjust=-0.5, size=rel(1.5))) +
+  theme(axis.title.y = element_text(vjust=1.5, size=rel(1.5))) +
   theme(plot.title = element_text(size = rel(2)))+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 ```
 
@@ -352,6 +362,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=INSATISFACTORIO, y=PROMEDIO_DIAS_LM,
     x="Insatisfactorio"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 ```
@@ -385,6 +396,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=PROMEDIO_DIAS_LM, fill = SEXO
     x="Sexo"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 # ESTADO CIVIL
@@ -408,6 +420,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL, y=PROMEDIO_DIAS_LM, fil
     x="Estado Civil"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 
@@ -432,6 +445,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SISTEMA_SALUD, y=PROMEDIO_DIAS_LM, fi
     x="Sistema de Salud"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 #NIVEL
@@ -455,6 +469,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=NIVEL, y=PROMEDIO_DIAS_LM, fill = NIV
     x="Nivel"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 #TIPO DE ESTABLECIMIENTO
@@ -474,11 +489,12 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TIPO_ESTABLECIMIENTO, y=PROMEDIO_DIAS
   labs(
     title="Distribución de los días promedio Tipo Establecimiento",
     caption = "Elab. propia: BBDD Lic. Médicas 2022",
-    y="Cantidad de Días promedios",
+    y="Cantidad de Días Promedios",
     x="Tipo Establecimiento"
   )+
   theme_minimal()+
-  theme(legend.position="none")
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
 
 # CALIDAD DE DESEMPEÑO
 
@@ -501,6 +517,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=CALIDAD_DESEMPEÑO, y=PROMEDIO_DIAS_L
     x="Calidad de Desempeño"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 # TRASLADO DE COMUNA
@@ -525,6 +542,7 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRASLADO_COMUNA, y=PROMEDIO_DIAS_LM, 
     x="Traslado de Comuna"
   )+
   theme_minimal()+
+  scale_fill_brewer(palette = "Set2")+
   theme(legend.position="none")
 
 
@@ -602,7 +620,7 @@ cowplot::plot_grid(p1,p2)
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="80%", out.height="100%", echo=FALSE}
 # Variable Sexo
 p1<- ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
-  geom_bar()+
+  geom_bar(color = color_contours_bar, fill = color_fill_bar)+
   scale_y_continuous(limits = c(0,500))+
   geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 2, color="white")+
   labs(
@@ -611,7 +629,8 @@ p1<- ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO))+
     x="Sexo",
     caption = "Elab. Propia: Fem (74.4%), Masc (25.6%)"
   )+
-  theme_minimal()
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")
 
 p2 <-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
   
@@ -623,7 +642,8 @@ p2 <-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EDAD))+
     x="Edad",
 
   )+
-  theme_minimal()
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")
 
 cowplot::plot_grid(p1,p2)
 
@@ -776,9 +796,10 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
   labs(
     title="Distribución de la variable Sistemas de salud",
     y="Frecuencia",
-    x="Sistemas de salud"
+    x="Sistemas de Salud"
   )+
-  theme_minimal()
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")
 
 
 ```
@@ -791,16 +812,17 @@ summary(BBDD_proyecto_sin_ceros$JORNADA)
 
 # Variable Jornada
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=JORNADA))+
-  geom_histogram()+
+  geom_histogram( color=color_contours_histogram, fill=color_fill_histogram)+
   geom_text(stat='count', aes(x = JORNADA, label = ..count..), vjust = -1, hjust=2 , color="black")+
   # scale_x_continuous(limits = c(15,90))+
-  scale_y_continuous(limits = c(0,40))+
+  scale_y_continuous(limits = c(0,30))+
   labs(
     title="Distribución de Jornada por Sexo",
     y="Frecuencia",
     x="Sexo"
   )+
-  theme_minimal()
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")
 ```
 
 Podemos notar que prácticamente el 75% de los las personas de la muestra trabajan jornadas de 44 o menos horas semanales, mientras que sólo un caso muestra 88 horas laborales semanales, este caso se debe a ..... (justificar el caso) 
@@ -809,17 +831,20 @@ Podemos notar que prácticamente el 75% de los las personas de la muestra trabaj
 
 
 ```{r, message=FALSE, warning=FALSE,out.width="80%", out.height="100%", echo = FALSE, fig.align="center"}
-# Estado Vicil
+# Estado Civil
+color_fill_bar_ <- "steelblue"
+color_contours_bar_ <- "black"
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL))+
-  geom_bar()+
-  geom_text(stat='count', aes(x = ESTADO_CIVIL, label = ..count..), vjust = -1, color="black")+
+  geom_bar(fill= color_fill_bar_, color = color_contours_bar)+
+  geom_text(stat='count', aes(x = ESTADO_CIVIL, label = ..count..), vjust = -1)+
   scale_y_continuous(limits = c(0,500))+
   labs(
     title="Distribución de Estado Civil",
     y="Frecuencia",
     x="Estado Civil"
   )+
-  theme_minimal()
+  theme_minimal()+
+  scale_fill_brewer(palette = "Set2")
 ```
 
 texto
@@ -828,7 +853,7 @@ texto
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
 # Evaluación Docente
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
-  geom_bar()+
+  geom_bar(color = color_contours_histogram, fill= color_fill_histogram)+
   geom_text(stat='count', aes(x = EVALUACION_DOCENTE, label = ..count..), vjust = -1, color="black")+
   scale_y_continuous(limits = c(0,350))+
   labs(
@@ -845,20 +870,17 @@ ggplot(BBDD_proyecto_sin_ceros, aes(EVALUACION_DOCENTE, PROMEDIO_DIAS_LM)) +
   xlab("Evaluación Docente")+
   ylab("Promedio Días LM")+
   labs(title = "Distribución de Evaluación Docente",
-       # subtitle = "Boxplot por EVALUACION_DOCENTE",
        caption = "Elaboración Propia")  +
   labs(fill = "Evaluación Docente") +  
   theme_minimal() + 
   theme(legend.position="none")+
   scale_fill_brewer(palette = "Set2")
-  # geom_jitter(color="black", size=0.3, alpha=0.9)
-
 ```
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE, fig.align="center"}
 
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE))+
-  geom_bar()+
+  geom_bar(color = color_contours_bar, fill = color_fill_bar)+
   geom_text(stat='count', aes(x = TRAMO_DOCENTE, label = ..count..), vjust = -1, color="black")+
   scale_y_continuous(limits = c(0,200))+
   labs(
@@ -883,16 +905,19 @@ chart.Correlation(df_num, histogram = T, pch = 19)
 Al analizar las correlaciones entre las variables predictoras continuas y el número promedio de dias con licencia se puede apreciar que la mayor correlación la presenta la variable edad con un coeficiente de 0.15 lo que sugiere posible efecto explicativo, seguido por la renta promedio con una correlación de 0.043, mientras que la jornada presente una correlación menor y negativa de -0.063.
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-p1<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Sexo"
-     )+
-     theme_minimal()
 
-p1
+ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=SEXO))+
+  xlab("SEXO")+
+  ylab("Días Promedio")+
+  scale_y_continuous(labels = comma)+
+  labs(title = "Distribución por Días Promedio",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Sexo") +  
+  theme_minimal()+
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
+
 ```
 
 
@@ -900,105 +925,129 @@ En este caso, los boxplot no sugieren un efecto del sexo sobre la distribución 
 
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-p2<-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTADO_CIVIL, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red","blue","orange","green")) +
-     labs(
-       title="Número de días promedio",
-       y="Distribución",
-       x="Estado civil"
-     )+
-     theme_minimal()
-p2
+ggplot(BBDD_proyecto_sin_ceros, aes(ESTADO_CIVIL, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=ESTADO_CIVIL))+
+  xlab("Estado Civil")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Estado Civil por Días Promedios",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Estado Civil") +  
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
+
 ```
 
 De acuerdo al gráfico los datos sugieren que el nivel "Divorciado" podría tener un efecto en el número promedio de días con licencia, dado que su soporte es levemente superior al de los demás niveles.
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SISTEMA_SALUD, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Sistemas de salud"
-     )+
-     theme_minimal()
+ggplot(BBDD_proyecto_sin_ceros, aes(SISTEMA_SALUD, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=SISTEMA_SALUD))+
+  xlab("Sistema de Salud")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Sistema de Salud por Días Promedios",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Sistema de Salud") +  
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
+
 ```
 
 Para el caso de los sistemas de salud, no se observan diferencias importantes en los soportes ni en las estadísticas de posición del número promedio de días con licencia, es decir, el sistema de salud podría no tener un efecto significativo. 
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=NIVEL, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Nivel Educacional"
-     )+
-     theme_minimal()
+ggplot(BBDD_proyecto_sin_ceros, aes(NIVEL, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=NIVEL))+
+  xlab("Nivel Educacional")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Nivel Educacional por Días Promedios",
+       caption = "Elaboración Propia")  +
+  labs(fill = "Nivel") +   
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
 ```
 
 Al observar la distribución del número promedio de días con licencia por nivel educacional no se observan grandes diferencias, lo que sugiere que este factor no presenta un grado de asociación significativo.
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=CALIDAD_DESEMPEÑO, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Calidad del desempeño"
-     )+
-     theme_minimal()
+ggplot(BBDD_proyecto_sin_ceros, aes(CALIDAD_DESEMPEÑO, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=CALIDAD_DESEMPEÑO))+
+  xlab("Calidad Desempeño")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Calidad Desempeño por Días Promedios",
+       caption = "Elaboración Propia")  +
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
 ```
 
 En este caso, el ser docente titular presenta un soporte levemente mayor que aquel docente con modalidad contrata, lo que puede sugerir un grado de asociación de este factor con el número promedio de días con licencia.
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=ESTAMENTO, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Estamento"
-     )+
-     theme_minimal()
+
+ggplot(BBDD_proyecto_sin_ceros, aes(ESTAMENTO, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=ESTAMENTO))+
+  xlab("Estamento")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Estamento por Días Promedios",
+       caption = "Elaboración Propia")  +
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
 ```
 
 Analizando el factor "Estamento" se puede notar que aquel docente que sólo presneta estamento de docente tiene mayor soporte que aquel que tiene estamento de directivo, lo que sugiere algún grado de asociación de este factor con el número promedio de días de licencias. 
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue", "orange", "yellow", "green", "brown", "pink")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Tramo docente"
-     )+
-     theme_minimal()
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE, y=PROMEDIO_DIAS_LM, 
+                                         fill = TRAMO_DOCENTE))+
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según la Tramo Docente",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    y="Cantidad de Días promedios",
+    x="Tramo Docente"
+  )+
+  theme_minimal()+
+  theme(text = element_text(size=7))+
+  theme(axis.title.x = element_text(vjust=-0.5, size=rel(1.5))) +
+  theme(axis.title.y = element_text(vjust=1.5, size=rel(1.5))) +
+  theme(plot.title = element_text(size = rel(2)))+
+  scale_fill_brewer(palette = "Set2")+
+  theme(legend.position="none")
 ```
 
 En este caso los boxplot de los días promedio de licencias analizados por los niveles del tramo docente muestran cambios en sus soportes lo que puede sugerir algún asociación de este factor.
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue", "orange", "yellow", "green")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Evaluación docente"
-     )+
-     theme_minimal()
+ggplot(BBDD_proyecto_sin_ceros, aes(EVALUACION_DOCENTE, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=EVALUACION_DOCENTE))+
+  xlab("Evaluación Docente")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Evaluación Docente por Días Promedios",
+       caption = "Elaboración Propia")  +
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
+
 ```
 De acuerdo al gráfico se aprecia una distribución de valores centrales diferente en el nivel "insatisfactorio" del factor "Evaluación docente", mientras que el resto de los niveles presentan soportes y distribuciones centrales similares, esto sugiere que se podría crear una variable dummy que tome valor uno cuando la evaluación docente es insatisfactorio o cero en otro caso, pero se tendría que evaluar si produce los mismos asociacións sobre el modelo que se proponga. 
 
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
-ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRASLADO_COMUNA, y=PROMEDIO_DIAS_LM))+
-     geom_boxplot(fill=c("red", "blue")) +
-     labs(
-       title="Distribución del número de días promedio",
-       y="Distribución",
-       x="Traslado de comuna"
-     )+
-     theme_minimal()
+ggplot(BBDD_proyecto_sin_ceros, aes(TRASLADO_COMUNA, PROMEDIO_DIAS_LM)) +
+  geom_boxplot(aes(fill=TRASLADO_COMUNA))+
+  xlab("Traslado Comuna")+
+  ylab("Promedio Días LM")+
+  labs(title = "Distribución Traslado Comuna por Días Promedios",
+       caption = "Elaboración Propia")  +
+  theme_minimal() + 
+  theme(legend.position="none")+
+  scale_fill_brewer(palette = "Set2")
+
+
 ```
 
 Respecto a la distribución del número de días con licencia de acuerdo al traslado, los soportes y distribuciones son similares, por lo cual no se sugiere algun asociación de este factor sobre la variable respuesta (número de días promedio con licencias)
