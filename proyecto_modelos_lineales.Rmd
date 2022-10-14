@@ -10,69 +10,167 @@ header-includes:
   - \usepackage{dutchcal}
 ---
 
+
+
+
+
 ## Introducción
- - bla bla
+
+En la actualidad, los servicios públicos han sido objeto de denuncias por parte de la ciudadanía por los temas que competen a las licencias médicas presentadas por los funcionarios de dichas entidades, en ella destacan principalmente las áreas correspondientes a la educación pública y en específico direccionados a los DOCENTES. La ley N° 20.585 de 2012, emitida por el Ministerio de Salud, básicamente indica que la institución estatal se encarga de la tramitación y pago completo de esta, ya sea FONASA o ISAPRE, en desmedro de dejar sin pagos salariales para sus DOCENTES, sin embargo, esto tiende a generar controversia por la gran cantidad de licencias tipo 1 (correspondiente a las psiquiátricas, estrés laboral, medicina general, accidente de trayecto, accidente de trabajo y enfermedad profesional) y el acumulado de días ausentes emitidas por este grupo, ya que indica un problema a los servicios públicos, estos son: búsqueda de reemplazos (por lo general no son docentes debido a la poca oferta que hay hoy en día impactando directamente en la calidad de educación), mayor inversión en la acciones preventivas (mutuales y capacitaciones anti estrés, generando aumentos de presupuestos en las arcas fiscales), uso y abuso de las mismas (compras de licencias médicas que corresponden a un delito), y agotamiento del sistema público.
+
+En el presente proyecto, se direccionará en tratar de explicar el número promedio de días de licencias médicas en Docentes de un servicio local de educación pública de la provincia del Huasco (comunas que comprende: Alto del Carmen, Vallenar, Freirina y Huasco) de la Región de Atacama, en función a características propias de ellos junto a variables relevantes a la demografía y a las educacionales, con el fin de tener una primera mirada ante la problemática ya expuesta, que aporten en gran medida a la toma de decisiones por parte de los establecimientos educacionales estatales. 
+
 
 ### Planteamiento del Problema
-<!-- ¿Cuáles son los hechos o fenómenos?; ¿Qué dicen los datos? -->
 
-- Fenomeno: Licencias medicas en funcionarios de educación en Huasco - 2022 han llegado con mucha frecuencia...
+
+Dado los antecedentes ya presentados en el acápite anterior, se quiere determinar si el número promedio de días de las licencias médicas (aprobadas) emitidas por los docentes, de enero a octubre del año 2022, puede ser explicado o influido por fenómenos endógenos como la evaluación docente o el tramo docente (para mayor información hacer click en el siguiente  [link](https://www.docentemas.cl/conozca-la-evaluacion-docente/evaluacion-docente-y-carrera-docente/)) o por variables exógenas (factores ajenos al DOCENTE) como podría ser el traslado de comuna para ir a su lugar de trabajo, al grupo etario al cual pertenece o si es profesor(a) jefe de un curso (debido a que tiene mayor responsabilidad administrativa) etc. Y en caso de ser significativo el efecto ante cambios en los días promedios de licencias médicas, cual es la magnitud y característica de estas variables.
 
 ### Justificación del Problema
- Las razones que conducen a investigar el fenómeno.
+
+Se desea identificar los fenómenos que estén, de alguna manera, relacionada con la emisión de licencias médicas para poder direccionar recursos necesarios, realizar cambios correspondientes y anticipar los problemas que generan las ausencias que puedan afectar la calidad de la educación pública bajo la administración de un servicio local en la provincia del Huasco, Región de Atacama, Chile.
   
-  - En funcion del impacto de las licencias medicas.    - caracterizacion de la licencia medica (numeros promedios de días )
-  
-  
+\newpage
+
 ###  Estado del Arte
-<!-- ¿Qué se ha dicho del tema en cuestión?; ¿Cómo lo han -->
-<!-- investigado?; ¿Qué tipo de metodología utilizan? -->
 
-BUSCAR UNA REFERENCIA A NIVEL NACIONAL PARA DECLARAR EL IMPACTO (DOCENTES Y MEDICOS)
-METODOLOGIA DE CONTEO (DESCRIPTIVO) 
+En la actualidad, la problemática descrita anteriormente se ve reflejada tanto en la comunidad docente (ver [enlace](https://www.colegiodeprofesores.cl/2022/06/08/reemplazos-de-docentes-por-licencias-medicas-orientaciones-al-respecto/) ) como en la ciudadania (ver [enlace](https://www.theclinic.cl/2022/09/14/la-pesadilla-que-atrapa-a-los-profesores/)) 
 
+### Objetivos 
 
-### Objetivo General y Objetivo Especifico
-<!-- ¿Para qué y cómo abordar la investigación? -->
-
-  - Obj General: 
-  se busca caracterizar la catnidad de dias promedios de LM de los docentes contratados bajo la administración del servicio de ed. publica de la provincia de Huasco, con info actualizada ENE-2022 a OCT-2022 con el fin poder entregar mayores antecedentes a la hora de tomar decisiones a nivel provincial 
+- Objetivo General
+ 
+Se busca explicar la cantidad de días promedios de Licencias Médicas de los docentes contratados, bajo la administración del Servicio de Educación Pública de la provincia del Huasco, con información actualizada entre ENERO a OCTUBRE del 2022, considerando variables exógenas y endógenas del Docente, con el fin poder entregar mayores antecedentes a la hora de tomar decisiones a nivel provincial.
   
-  - Obj Especificos:
-    - Obtener, recopilar y extraer las caracteristicas más importantes que aporten al estudio de la investigación 
+- Objetivos Específicos
+  
+   1.- Definir, obtener, extraer y limpiar los datos que corresponden a las caracteristicas que más se relacionen y que aporten al posible efecto de los días en promedio de licencias médicas en docentes de la provincia en el periodo mencionado.
 
-    - Descripción y asociación de variables predictoras con respecto a la cantidad promedio de días.
+   2.- Descripción uni y bi variada junto a un analisis de asociación de variables predictoras con respecto a la cantidad promedio de días por licencias médicas, para la toma de decisiones respecto a la base de datos a tratar.
     
-    - validación la base de datos y modificar su estructura para los fines de este estudio
-    
-    <!-- -Método y selección de variables -->
+   3.- Validación de la base de datos,  modificación de su estructura (en caso de ser necesario) y presentación del modelo completo ante las variables escojidas.
+   
+   4.- Exhibición del modelo escojido, bajo la metodología de selección de variables (Forward y Backward)
 
 
 ### Plateamiento de la hipótesis en el estudio
-<!-- ¿Qué es lo que quiero problematizar o comprobar? -->
-  <!-- - Se desea validar que (definición de hipotesis) -->
-  
-  - Se quiere determinar si la evaluación docente esta indirectametne relacionada con el promedio de días tomados por licencias medicas de los mismos docentes 
-  
-  
+
+Se requiere determinar lo siguiente: ¿Que tan cierto es que a mayor evaluación docente y tramo docente (variables endógenas), menor es la cantidad de días de solicitadas por licencias médicas?, y si lo hay, ¿De cuanto es lo que impacta en promedio a los días tomados por licencias medicas tipo 1?
+
+¿Existen variables exógenas que tienen un impacto en los días promedios tomados por las licencias médicas?, si es así, ¿De cuanto es lo que explica este fenómeno?
+
+
 ## Generación de unidades de información
+
+Las unidades de información hace referencia a la dotación de Docentes en la provincia del Huasco que han presentado licencias médicas en el periodo de enero a octubre 2022, que se encuentran bajo la administracion del Servicio Local de Educación Pública del Huasco, Región de Atacama, Chile. Por lo tanto se tiene lo siguiente:
+
+- Total de docentes en la provincia: 1.109.
+
+- Cantidad de Establecimientos Educacionales: 53.
+
+- Total de docentes que han presentado licencias medicás tipo 1: 657
+
+Para fines de este estudio, se determina una muestra aleatoria de 500 docentes que presentaron licencias médicas tipo 1, bajo la reglamentación impuesta por la entidad evaluadora.
+
+Finalmente se obtienen los siguientes antecedentes de acuerdo a los días promedios de licencias médicas emitidas por docentes de la provincia del Huasco:
+
+```{r fig.align="center", warning=FALSE, message=FALSE, out.width="70%", include = FALSE}
+
+library(readxl)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(ggplot2)
+library(scales)
+library(cowplot)
+library(PerformanceAnalytics)
+library(patchwork)
+library(hrbrthemes)
+library(viridis)
+
+# Lectura y cambio de estructura de la BBDD
+
+setwd("~/Desktop/MAGISTER/modelos_lineales/")
+BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
+BBDD_proyecto <- BBDD_proyecto %>% mutate_at(c("SEXO","ESTADO_CIVIL",
+                                               "SISTEMA_SALUD","NIVEL",
+                                               "TIPO_ESTABLECIMIENTO",
+                                               "CALIDAD_DESEMPEÑO",
+                                               "COMUNA_ESTABLECIMIENTO",
+                                               "ESTAMENTO","TRAMO_DOCENTE", "TRASLADO_COMUNA"),factor)
+
+BBDD_proyecto$TRASLADO_COMUNA<-factor(BBDD_proyecto$TRASLADO_COMUNA, levels = c(0,1), labels = c("No", "Si"))
+
+
+BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
+                                           levels = c("SIN EVALUACIÓN",
+                                                      "DESTACADO",
+                                                      "BASICO",
+                                                      "INSATISFACTORIO",
+                                                      "COMPETENTE"))
+
+
+BBDD_proyecto_sin_ceros_ <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
+
+# Seleccion de muestra aleatoria de tamaño 500
+
+n <- dim(BBDD_proyecto_sin_ceros_)[1]
+set.seed(20221012)
+id_sample <- sample(1:n,500, replace=F)
+BBDD_proyecto_sin_ceros <- BBDD_proyecto_sin_ceros_[id_sample,]
+
+```
+
+|Cant. Docentes | Min.| 1st Qu.| Mediana | Promedio | 3rd Qu. | Max. |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|500| 1.00 | 5.00 | 7.00 | 10.44 | 14.85 | 30.00 | 
+
+```{r fig.align="center", warning=FALSE, message=FALSE, echo=FALSE,out.width="80%", out.height="100%", echo = FALSE}
+
+library(ggplot2)
+# Gráficos de distribución y boxplot.
+
+p1 <- ggplot(BBDD_proyecto_sin_ceros, aes(x = PROMEDIO_DIAS_LM)) +
+  geom_histogram(aes(y =..density..), colour = "black", fill = "white") +
+  geom_density(alpha = 0.6 , fill = "#FF6666", lwd = 1,colour = 2)+
+  geom_vline(aes(xintercept = mean(PROMEDIO_DIAS_LM)),
+             color = "blue", linetype = "dashed", size = 1)+
+  theme_minimal()+
+  labs(
+    title="Distribución de Licencias Médicas",
+    # subtitle = "Cantidad de DOCENTES: 500",
+    y="Densidad",
+    x="Días Promedios",
+    caption = "Elab. propia: BBDD - lic. med. 2022"
+  )
+
+
+p2<-ggplot(BBDD_proyecto_sin_ceros, aes(y = PROMEDIO_DIAS_LM)) +
+  geom_boxplot(fill = "#FF6666" )+
+  labs(
+    title = "Box-plot del promedio de días por lic. Médicas",
+    # subtitle = "Cantidad de DOCENTES: 500",
+    y = "Cantidad promedio de días",
+    caption = "Elab. propia: BBDD - lic. med. 2022"
+  )+
+  theme()+
+  theme_minimal()
+
+
+cowplot::plot_grid(p1,p2)
+
+```
+
+Se observa que el promedio de días se aproxima a una distribución asimétrica negativa, lo que indica...
+
 
 ### Diseño de estrategias metodológicas
 <!-- : ¿Qué metodologías utilizaré?; -->
 <!-- ¿Cómo voy a alcanzar los objetivos que he construido? -->
 
+Para el presente proyecto, se plantea metodología a través de regresiones lineales, dando principal enfásis al análisis descriptivo y en el tratamiento de la estructura de la base de datos, tomando decisiones de esta ante una postura de recodificación de variable si es posible dado el caso.
 
-Debido a lo que se quiere explicar, se plantea
-metodologia a traves de regresiones lineales debido a que se quiere explocar ....
-
-
-## Procesamiento de las unidades de información
-
-<!-- Análisis de datos: ¿Qué dicen los datos? -->
-
-<!-- La base de datos esta compuesta por $1.109$ observaciones y $15$ columnas detalladas a continuación: -->
-
-### Descripción de los datos 
+### Estructura de la base de datos 
 
 \begin{center}
     \begin{tabular}{|c|}
@@ -114,66 +212,265 @@ metodologia a traves de regresiones lineales debido a que se quiere explocar ...
     \end{tabular}
 \end{center}
 
+## Análisis Descriptivo
+
+Para el siguiente paso, se definirán las variables a las cuales las llamaremos Exógenas y Endogenas, indicando sus principales indicadores según los días promedios de licencias médicas cursadas.
+
 ```{r fig.align="center", warning=FALSE, message=FALSE, out.width="70%", include = FALSE}
-library(readxl)
-library(tidyverse)
 
-library(dplyr)
-library(knitr)
-library(ggplot2)
-library(scales)
-library(cowplot)
-library(PerformanceAnalytics)
-library(patchwork)
-library(hrbrthemes)
-library(viridis)
+tabla_1 <- BBDD_proyecto_sin_ceros %>% 
+  group_by(EVALUACION_DOCENTE) %>% 
+  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad = sum(CANTIDAD_LM))
+```
+
+**a.-** **Variables Endógenas** (indicadores de evaluaciones propias del docentes)
+
+- El Sistema de Evaluación del Desempeño Profesional Docente (o Evaluación Docente) es una evaluación obligatoria para los y las docentes, educadoras y educadores de aula que se desempeñan en establecimientos municipales o estatales a lo largo del país. Su objetivo es fortalecer la profesión docente y contribuir a mejorar la calidad de la educación.[^1] 
+
+[^1]: Evaluación Docente, para mayor información visite [www.cpeip.cl](https://www.cpeip.cl/carrera-docente-progresion-tramos/#:~:text=Tramo%20voluntario%20que%20da%20cuenta,de%20acompa%C3%B1amiento%20y%20liderazgo%20pedag%C3%B3gico.)
 
 
-setwd("~/Desktop/MAGISTER/modelos_lineales/")
-BBDD_proyecto <- read_excel("BBDD_FINAL_Mod_Lin.xlsx")
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
+
+tabla_endogena_1 <- BBDD_proyecto_sin_ceros %>% 
+  group_by(EVALUACION_DOCENTE) %>% 
+  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+knitr::kable(tabla_endogena_1, align = c("l","c","c","c","c","c","c"))
+
+
+
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE, y=PROMEDIO_DIAS_LM, 
+                                         fill = EVALUACION_DOCENTE))+
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según la Evaluación Docente",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    subtitle = "Cantidad de Docentes = 500",
+    y="Cantidad de Días promedios",
+    x="Evaluación Docente"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
+```
+
+Al observar cada evaluación se aprecia que la categoría Insatisfactorio resalta de las demas por poseer una media y mediana mayor en comparación a las demás categorías de evaluación, por consiguiente, el gráfico de boxplot ratifica lo mencionado e indica que tiene un rango de variación distinto en comparación,sin embargo, las demás categórias de evaluación poseen similares distribuciones al apreciar sus indicadores.
+
+
+- La Carrera Docente cuenta con cinco tramos en que los profesores pueden progresar demostrando las competencias y conocimientos alcanzados. Además, existe un tramo provisorio, denominado Acceso, para aquellos docentes que tienen más de cuatro años de experiencia, pero que no cuentan con resultados en evaluaciones previas del Ministerio de Educación.[^2]
+
+[^2]: Tramo Docente, para mayor información visite [www.docentemas.cl](https://www.docentemas.cl/quienes-somos/que-es-la-evaluacion-docente/)
+
+
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
+tabla_endogena_2 <- BBDD_proyecto_sin_ceros %>% 
+  group_by(TRAMO_DOCENTE) %>% 
+  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+knitr::kable(tabla_endogena_2, align = c("l","c","c","c","c","c","c"))
+
+# Boxplot evaluación docente vs dias promedio.
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=TRAMO_DOCENTE, y=PROMEDIO_DIAS_LM, 
+                                         fill = TRAMO_DOCENTE))+
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según la Tramo Docente",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    subtitle = "Cantidad de Docentes = 500",
+    y="Cantidad de Días promedios",
+    x="Tramo Docente"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
+```
+
+
+Se instuye que a diferencia de los demás tramos, el EXPERTO II no presenta un rango de variabilidad que la caracterice, por otro lado, la categoría que más se destaca, en términos de sus indicadores, es aquel tramo donde no presenta encasillamiento, pero esto se puede deber a un efecto producido por la cantidad de licencias presentadas de tal tramo. Además es interesante indica que el TRAMO INICIAL y el TEMPRANO poseen la mayor cantidad de licencias medicas liderando así, tanto en media como en mediana este último mencionado respectivamente. Finalmente, y descartando la categoría EXPERTO II, al parecer y en base a un criterio gráfico, todas los tramos poseen un similar comportamiento en funcion a los días promedios por licencias medicas emitidas.
+
+
+A modo de conclusión de este análisis, se toma la decisión de recodificar la variable EVALUACIÓN DOCENTE, en una nueva variable la que se llamará INSATISFACTORIO, quedando los siguiente indicadores junto con su distribución:
+
+```{r include=FALSE}
+# Recodificación Insatisfactorio.
+
+BBDD_proyecto_sin_ceros %>% mutate(INSATISFACTORIO = EVALUACION_DOCENTE)
+BBDD_proyecto_sin_ceros$INSATISFACTORIO <- ifelse(BBDD_proyecto_sin_ceros$EVALUACION_DOCENTE == "INSATISFACTORIO", 1, 0)
+BBDD_proyecto_sin_ceros$INSATISFACTORIO <- factor(BBDD_proyecto_sin_ceros$INSATISFACTORIO,
+                                                  levels = c(0,1),
+                                                  labels = c("No Insatisfactorio","Insatisfactorio"))
+```
+
+
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
+
+tabla_endogena_3 <- BBDD_proyecto_sin_ceros %>% 
+  group_by(INSATISFACTORIO) %>% 
+  summarise(promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+knitr::kable(tabla_endogena_3, align = c("l","c","c","c","c","c","c"))
+
+ggplot(data=BBDD_proyecto_sin_ceros, aes(x=INSATISFACTORIO, y=PROMEDIO_DIAS_LM, 
+                                         fill = INSATISFACTORIO))+
+  geom_boxplot() +
+  labs(
+    title="Distribución de los días promedio según la Tramo Docente",
+    caption = "Elab. propia: BBDD Lic. Médicas 2022",
+    subtitle = "Cantidad de Docentes = 500",
+    y="Cantidad de Días promedios",
+    x="Tramo Docente"
+  )+
+  theme_minimal()+
+  theme(legend.position="none")
+
+```
+
+
+**b.-** **Variables Exógenas**  (indicadores ajenas al docentes)
+
+En esta presente sección, se analizaran las variables que son ajenas a las capacidades evaluativas propias del docentes dado el número promedio de días por licencia médica emitida, las cuales son:
+
+```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center", echo=FALSE}
+
+# Análisis descriptivo de las variables exógenas.
+
+# SEXO
+tabla_exogena_1<- BBDD_proyecto_sin_ceros %>% 
+  group_by(SEXO) %>% 
+  summarise(n = n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+# ESTADO CIVIL
+
+tabla_exogena_2<- BBDD_proyecto_sin_ceros %>% 
+  group_by(ESTADO_CIVIL) %>% 
+  summarise(n = n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+#SISTEMA DE SALUD
+
+tabla_exogena_3<- BBDD_proyecto_sin_ceros %>% 
+  group_by(SISTEMA_SALUD) %>% 
+  summarise(n = n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+
+#NIVEL
+
+tabla_exogena_4<- BBDD_proyecto_sin_ceros %>% 
+  group_by(NIVEL) %>% 
+  summarise(n = n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+
+#TIPO DE ESTABLECIMIENTO
+
+tabla_exogena_5<- BBDD_proyecto_sin_ceros %>% 
+  group_by(TIPO_ESTABLECIMIENTO) %>% 
+  summarise(n= n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+
+# CALIDAD DE DESEMPEÑO
+
+tabla_exogena_6<- BBDD_proyecto_sin_ceros %>% 
+  group_by(CALIDAD_DESEMPEÑO) %>% 
+  summarise(n = n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+# CALIDAD DE DESEMPEÑO
+
+tabla_exogena_7<- BBDD_proyecto_sin_ceros %>% 
+  group_by(TRASLADO_COMUNA) %>% 
+  summarise(n = n(),
+            promedio = mean(PROMEDIO_DIAS_LM),
+            Mediana = median(PROMEDIO_DIAS_LM),
+            DesvEstandar = sd(PROMEDIO_DIAS_LM),
+            Min = min(PROMEDIO_DIAS_LM),
+            Max = max(PROMEDIO_DIAS_LM),
+            Cantidad_LM_presentadas = sum(CANTIDAD_LM))
+
+
+knitr::kable(tabla_exogena_1, align = c("l","c","c","c","c","c","c","c"))
+knitr::kable(tabla_exogena_2, align = c("l","c","c","c","c","c","c","c"))
+knitr::kable(tabla_exogena_3, align = c("l","c","c","c","c","c","c","c"))
+knitr::kable(tabla_exogena_4, align = c("l","c","c","c","c","c","c","c"))
+knitr::kable(tabla_exogena_5, align = c("l","c","c","c","c","c","c","c"))
+knitr::kable(tabla_exogena_6, align = c("l","c","c","c","c","c","c","c"))
+knitr::kable(tabla_exogena_7, align = c("l","c","c","c","c","c","c","c"))
+
 ```
 
 
 
-```{r fig.align="center", warning=FALSE, message=FALSE, out.width="90%", out.height="99%", include=FALSE}
-BBDD_proyecto <- BBDD_proyecto %>% mutate_at(c("SEXO","ESTADO_CIVIL",
-                              "SISTEMA_SALUD","NIVEL",
-                              "TIPO_ESTABLECIMIENTO",
-                              "CALIDAD_DESEMPEÑO",
-                              "COMUNA_ESTABLECIMIENTO",
-                              "ESTAMENTO","TRAMO_DOCENTE", "TRASLADO_COMUNA"),factor)
-
-BBDD_proyecto$TRASLADO_COMUNA<-factor(BBDD_proyecto$TRASLADO_COMUNA, levels = c(0,1), labels = c("No", "Si"))
 
 
-BBDD_proyecto$EVALUACION_DOCENTE <- factor(BBDD_proyecto$EVALUACION_DOCENTE,
-                                           levels = c("SIN EVALUACIÓN",
-                                                      "DESTACADO",
-                                                      "BASICO",
-                                                      "INSATISFACTORIO",
-                                                      "COMPETENTE"))
 
 
-BBDD_proyecto_sin_ceros_ <- BBDD_proyecto %>% filter(PROMEDIO_DIAS_LM != 0)
-dim(BBDD_proyecto_sin_ceros_)
 
-# Seleccion de muestra aleatoria de tamaño 500
-n <- dim(BBDD_proyecto_sin_ceros_)[1]
-set.seed(20221012)
-id_sample <- sample(1:n,500, replace=F)
-BBDD_proyecto_sin_ceros <- BBDD_proyecto_sin_ceros_[id_sample,]
-dim(BBDD_proyecto_sin_ceros)
 
-```
 
-## Estadística Descriptiva
 
-A continuación se presenta análisis descriptivos para las variables más relevantes del estudio, de las cuales destacamos días promedios de licencias médicas, .....
+
+
+
+
 
 
 ### Distribución de Licencias Médicas
 
-El gráfico de la izquierda muestra la distribución de licencias médicas que incluyen a los docentes/funcionarios que no han presentado licencias médicas hasta la fecha, en el gráfico de la derecha se muestra la distribución de licencias médicas pero descartando los casos de docentes/funcionarios que no han presentado licencias médicas, siendo este el grupo de personas empleadas para el análisis
+
 
 
 ```{r fig.align="center", warning=FALSE, message=FALSE, echo=FALSE,out.width="80%", out.height="100%", include=FALSE}
@@ -240,7 +537,7 @@ cowplot::plot_grid(p1,p2)
 
 ```
 
-De acuerdo a los resultados, la variable edad parece tener una distribución bimodal, de hecho, nos da luces de uan cierta mezcla de distribuciones, por lo cual se hace necesario el poder analizar esta variable de acuerdo a variables categórigas como es el sexo.
+De acuerdo a los resultados, la variable edad parece tener una distribución bimodal, de hecho, nos da luces de uan cierta mezcla de distribuciones, por lo cual se hace necesario el poder analizar esta variable de acuerdo a variables categóricas como es el sexo.
 
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE,fig.align="center"}
@@ -285,8 +582,8 @@ p3<- ggplot(BBDD_proyecto_sin_ceros, aes(SEXO, EDAD)) +
     legend.position = "none"
   )+
   theme_minimal()+
-  scale_fill_brewer(palette = "Set2")+
-  geom_jitter(color="black", size=0.3, alpha=0.9)
+  scale_fill_brewer(palette = "Set2")
+  # geom_jitter(color="black", size=0.3, alpha=0.9)
 
 
 p3 + (p1/p2)
