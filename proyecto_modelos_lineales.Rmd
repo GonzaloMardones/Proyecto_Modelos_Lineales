@@ -790,7 +790,7 @@ Comparando los niveles de renta por sexo se puede notar una cierta similitud en 
 ```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%",  echo = FALSE, fig.align="center"}
 # Sistemas de salud por sexo
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
-  geom_bar()+
+  geom_bar(color = "black")+
   geom_text(stat='count', aes(x = SEXO, label = ..count..), vjust = 1.5, color="black")+
   scale_y_continuous(limits = c(0,500))+
   labs(
@@ -801,19 +801,22 @@ ggplot(data=BBDD_proyecto_sin_ceros, aes(x=SEXO, fill=SISTEMA_SALUD))+
   theme_minimal()+
   scale_fill_brewer(palette = "Set2")
 
-
 ```
 
 Según los datos, la proporción de personas que pertenecen al sistema de salud fonasa es alto tanto en hombres como en mujeres, esto tiene sentido desde el punto de vista que es una base de información de la provincia de Huasco donde existe una alta mayoría de zonas rurales donde el sistema fonasa es predominante.
 
-```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%", echo = FALSE, fig.align="center"}
+|Min.|1st Qu.|Mediana | Promedio | 3rd Qu. | Max. |
+|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|$22.00$| $44.00$ | $44.00$ | $43.05$ | $44.00$ | $44.00$ |
 
-summary(BBDD_proyecto_sin_ceros$JORNADA)
+
+```{r, message=FALSE, warning=FALSE,  out.width="80%", out.height="100%", echo = FALSE, fig.align="center"}
+# summary(BBDD_proyecto_sin_ceros$JORNADA)
 
 # Variable Jornada
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=JORNADA))+
   geom_histogram( color=color_contours_histogram, fill=color_fill_histogram)+
-  geom_text(stat='count', aes(x = JORNADA, label = ..count..), vjust = -1, hjust=2 , color="black")+
+  geom_text(stat='count', aes(x = JORNADA, label = ..count..), vjust = -1 , color="black")+
   # scale_x_continuous(limits = c(15,90))+
   scale_y_continuous(limits = c(0,30))+
   labs(
@@ -853,7 +856,7 @@ texto
 ```{r, message=FALSE, warning=FALSE, echo = FALSE,fig.align="center"}
 # Evaluación Docente
 ggplot(data=BBDD_proyecto_sin_ceros, aes(x=EVALUACION_DOCENTE))+
-  geom_bar(color = color_contours_histogram, fill= color_fill_histogram)+
+  geom_bar(color = color_contours_bar, fill= color_fill_bar_)+
   geom_text(stat='count', aes(x = EVALUACION_DOCENTE, label = ..count..), vjust = -1, color="black")+
   scale_y_continuous(limits = c(0,350))+
   labs(
